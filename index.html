@@ -1,0 +1,2281 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="artifact-type" content="dashboard">
+  <meta name="design-style" content="terracotta">
+  <title>Śrīmad-Bhāgavatam — Complete 12-Canto, 335-Chapter Study Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+
+      /* Page and surfaces (Terracotta style base + warm devotional saffron/gold) */
+      --background: #f9f3eb;
+      --surface-container-low: #f3e9dc;
+      --surface-container: #ede0d0;
+      --surface-container-high: #e4d4c0;
+      --surface-card: #fdf9f3;
+
+      /* Ink */
+      --on-surface: #261b15;
+      --on-surface-variant: #57483f;
+
+      /* Borders */
+      --outline: #9e8a78;
+      --outline-variant: #dfd0be;
+      --border-featured: #c98a6b;
+
+      /* Accents */
+      --primary: #b84a24;
+      --primary-hover: #9a3b1a;
+      --on-primary: #ffffff;
+      --primary-container: #f7ebe0;
+      --on-primary-container: #7d2e12;
+      --secondary: #8f6524;
+      --secondary-container: #f5ebd8;
+      --tertiary: #1d6356;
+      --tertiary-container: #e1efe9;
+      --tertiary-border: #b5d6c9;
+      --on-tertiary-container: #13473d;
+      --error: #b82929;
+      --on-error: #ffffff;
+
+      /* Highlight & Semantic */
+      --positive: #1d6356;
+      --warning: #8f6524;
+      --focus: #b84a24;
+      --highlight-bg: #f6d58e;
+      --highlight-ink: #261b15;
+
+      /* Data series */
+      --data-1: #b84a24;
+      --data-2: #1d6356;
+      --data-3: #b5893e;
+      --data-4: #8c3838;
+      --data-context: #a39384;
+
+      /* Fonts */
+      --font-headline: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+      --font-label: 'Plus Jakarta Sans', system-ui, sans-serif;
+
+      /* Shape */
+      --rounded: 0.375rem;
+      --rounded-lg: 0.75rem;
+      --rounded-arch: 28px 28px 6px 6px;
+      --rounded-full: 9999px;
+
+      /* Style effects */
+      --soft-shadow: 0 4px 18px rgb(38 27 21 / 0.04);
+      --soft-shadow-raised: 0 8px 28px rgb(38 27 21 / 0.08);
+      --brass-gradient: linear-gradient(90deg, #d8c3b0, #b5893e, #d8c3b0);
+      --nav-backdrop: rgb(249 243 235 / 0.94);
+      --border-control: #c4b29e;
+
+      /* Type scale (Dashboard) */
+      --display-size: clamp(1.85rem, 1.4rem + 1.5vw, 2.75rem);
+      --headline-size: clamp(1.35rem, 1.1rem + 0.65vw, 1.75rem);
+      --subhead-size: clamp(1.0625rem, 1rem + 0.25vw, 1.25rem);
+      --body-size: clamp(0.9375rem, 0.9rem + 0.15vw, 1rem);
+      --label-size: 0.75rem;
+
+      /* Spacing scale */
+      --space-xs: 0.25rem;
+      --space-sm: 0.5rem;
+      --space-md: 1rem;
+      --space-lg: 1.5rem;
+      --space-xl: 2.5rem;
+      --space-2xl: 4rem;
+
+      /* Motion */
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+      --dur-micro: 120ms;
+      --dur-short: 220ms;
+      --dur-long: 420ms;
+    }
+
+    [data-theme="dark"] {
+      color-scheme: dark;
+      --background: #1a1310;
+      --surface-container-low: #241b16;
+      --surface-container: #2e231d;
+      --surface-container-high: #3a2c24;
+      --surface-card: #211814;
+      --on-surface: #f5ece0;
+      --on-surface-variant: #c7b6a6;
+      --outline: #8f7763;
+      --outline-variant: #3d2f27;
+      --border-featured: #9c593e;
+      --primary: #e07a52;
+      --primary-hover: #ea8e6a;
+      --on-primary: #1a1310;
+      --primary-container: #362219;
+      --on-primary-container: #f5c1aa;
+      --secondary: #d4a857;
+      --secondary-container: #332818;
+      --tertiary: #5ec2b0;
+      --tertiary-container: #19322d;
+      --tertiary-border: #2b544c;
+      --on-tertiary-container: #9de4d7;
+      --highlight-bg: #7c5818;
+      --highlight-ink: #fdf6e9;
+      --nav-backdrop: rgb(26 19 16 / 0.94);
+      --border-control: #5c483b;
+      --soft-shadow: 0 4px 18px rgb(0 0 0 / 0.28);
+      --soft-shadow-raised: 0 8px 28px rgb(0 0 0 / 0.4);
+      --brass-gradient: linear-gradient(90deg, #4b3a2c, #d4a857, #4b3a2c);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body {
+      overflow-x: clip;
+      margin: 0;
+      padding: 0;
+      background-color: var(--background);
+      color: var(--on-surface);
+      font-family: var(--font-body);
+      font-size: var(--body-size);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    header { position: static !important; }
+    button, input, select { font-family: inherit; }
+
+    :focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 2px;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* Sticky / Docked Navigation Bar */
+    .canto-nav {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: var(--nav-backdrop);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--outline-variant);
+      padding: var(--space-sm) var(--space-md);
+    }
+    .canto-nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+    .nav-top-row {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: var(--space-sm);
+      flex-wrap: wrap;
+    }
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      padding-bottom: var(--space-xs);
+    }
+    .nav-brand-title {
+      font-family: var(--font-headline);
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--on-surface);
+      letter-spacing: -0.01em;
+    }
+    .nav-brand-title em {
+      font-style: italic;
+      color: var(--primary);
+    }
+    .nav-controls-row {
+      display: flex;
+      align-items: end;
+      gap: var(--space-sm);
+      flex-wrap: wrap;
+    }
+    .control-field {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+    .control-label {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--on-surface-variant);
+    }
+    .canto-select, .search-input {
+      min-height: 44px;
+      background: var(--surface-container-low);
+      color: var(--on-surface);
+      border: 1px solid var(--border-control);
+      border-radius: var(--rounded);
+      padding: 0 var(--space-md);
+      font-size: 0.9375rem;
+      transition: border-color var(--dur-micro) var(--ease-out), background-color var(--dur-micro) var(--ease-out);
+    }
+    .canto-select {
+      padding-right: 2.25rem;
+      cursor: pointer;
+    }
+    .canto-select:hover, .search-input:hover {
+      border-color: var(--primary);
+    }
+    .search-box-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+    }
+    .search-input {
+      width: min(320px, 68vw);
+      padding-left: var(--space-md);
+    }
+    .btn {
+      min-height: 44px;
+      padding: 0 var(--space-md);
+      border-radius: var(--rounded-full);
+      font-family: var(--font-label);
+      font-size: 0.8125rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      border: 1px solid transparent;
+      transition: background-color var(--dur-micro) var(--ease-out), border-color var(--dur-micro) var(--ease-out), transform var(--dur-micro) var(--ease-out);
+      white-space: nowrap;
+    }
+    .btn:active { transform: translateY(1px); }
+    .btn-primary {
+      background: var(--primary);
+      color: var(--on-primary);
+    }
+    .btn-primary:hover { background: var(--primary-hover); }
+    .btn-secondary {
+      background: transparent;
+      color: var(--on-surface);
+      border-color: var(--border-control);
+    }
+    .btn-secondary:hover {
+      background: var(--surface-container-low);
+      border-color: var(--primary);
+    }
+    .btn-ghost {
+      background: var(--surface-container-low);
+      color: var(--on-surface-variant);
+      border-color: var(--outline-variant);
+    }
+    .btn-ghost:hover {
+      color: var(--on-surface);
+      border-color: var(--primary);
+    }
+
+    /* Horizontal Scrollable Canto Pills */
+    .canto-pills-scroll {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      overflow-x: auto;
+      scrollbar-width: thin;
+      padding-block: 2px;
+      -webkit-overflow-scrolling: touch;
+    }
+    .canto-pill {
+      min-height: 44px;
+      padding: 0 var(--space-md);
+      border-radius: var(--rounded-full);
+      border: 1px solid var(--outline-variant);
+      background: var(--surface-container-low);
+      color: var(--on-surface-variant);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      flex: 0 0 auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: background-color var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out), border-color var(--dur-micro) var(--ease-out);
+    }
+    .canto-pill:hover {
+      border-color: var(--primary);
+      color: var(--on-surface);
+    }
+    .canto-pill.is-active {
+      background: var(--primary);
+      color: var(--on-primary);
+      border-color: var(--primary);
+    }
+    .canto-pill-count {
+      font-size: 0.7rem;
+      opacity: 0.85;
+    }
+
+    /* Page Container */
+    .page-grid {
+      display: grid;
+      gap: var(--space-lg);
+      padding: var(--space-lg) var(--space-md) var(--space-2xl);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .page-grid * { min-width: 0; }
+
+    /* Hero Banner */
+    .hero-block {
+      text-align: center;
+      padding: var(--space-lg) var(--space-md) var(--space-sm);
+    }
+    .hero-kicker {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin: 0 0 var(--space-xs);
+    }
+    .hero-title {
+      font-family: var(--font-headline);
+      font-weight: 600;
+      font-size: var(--display-size);
+      line-height: 1.06;
+      letter-spacing: -0.01em;
+      margin: 0 auto var(--space-sm);
+      color: var(--on-surface);
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--primary);
+    }
+    .hero-sub {
+      max-width: 68ch;
+      margin: 0 auto;
+      color: var(--on-surface-variant);
+      font-size: 1rem;
+    }
+
+    .ornament-rule {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-block: var(--space-md);
+      color: var(--secondary);
+      font-family: var(--font-label);
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+    .ornament-rule::before,
+    .ornament-rule::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--brass-gradient);
+    }
+
+    /* Riad Arch KPI / Canto Anatomy Cards */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: var(--space-md);
+    }
+    .arch-card {
+      background: var(--surface-container-low);
+      border: 1px solid var(--outline-variant);
+      border-radius: var(--rounded-arch);
+      padding: 18px 16px 14px;
+      text-align: center;
+      box-shadow: var(--soft-shadow);
+      transition: box-shadow var(--dur-short) var(--ease-out), transform var(--dur-short) var(--ease-out);
+    }
+    .arch-card:hover {
+      box-shadow: var(--soft-shadow-raised);
+    }
+    .arch-card.is-featured {
+      background: var(--primary-container);
+      border-color: var(--border-featured);
+    }
+    .arch-label {
+      font-family: var(--font-label);
+      font-size: 0.6875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--on-surface-variant);
+      margin-bottom: var(--space-xs);
+    }
+    .arch-value {
+      font-family: var(--font-headline);
+      font-weight: 600;
+      font-size: clamp(1.35rem, 1.1rem + 0.8vw, 1.9rem);
+      line-height: 1.15;
+      color: var(--on-surface);
+      margin-bottom: 2px;
+    }
+    .arch-caption {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--tertiary);
+    }
+
+    /* Interactive Granthavatara (Book Form of Krishna) Strip */
+    .anatomy-panel {
+      background: var(--surface-container);
+      border: 1px solid var(--outline-variant);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-md) var(--space-lg);
+    }
+    .anatomy-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-sm);
+    }
+    .anatomy-title {
+      font-family: var(--font-headline);
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin: 0;
+    }
+    .anatomy-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: var(--space-sm);
+    }
+    .limb-btn {
+      min-height: 44px;
+      padding: 6px 10px;
+      border-radius: var(--rounded);
+      border: 1px solid var(--outline-variant);
+      background: var(--surface-container-low);
+      color: var(--on-surface);
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      transition: border-color var(--dur-micro) var(--ease-out), background-color var(--dur-micro) var(--ease-out);
+    }
+    .limb-btn:hover { border-color: var(--primary); }
+    .limb-btn.is-active {
+      background: var(--primary-container);
+      border-color: var(--primary);
+    }
+    .limb-canto {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--primary);
+    }
+    .limb-name {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--on-surface);
+    }
+
+    /* Search Panel & Status Bar */
+    .search-status-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      background: var(--surface-container-low);
+      border: 1px solid var(--outline-variant);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-sm) var(--space-md);
+    }
+    .search-status-text {
+      font-size: 0.9rem;
+      color: var(--on-surface-variant);
+      margin: 0;
+    }
+    .search-status-text strong { color: var(--primary); }
+
+    /* Canto Header Card */
+    .canto-header-card {
+      background: var(--surface-card);
+      border: 1px solid var(--outline-variant);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-lg);
+      box-shadow: var(--soft-shadow);
+    }
+    .canto-header-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: var(--space-md);
+      margin-bottom: var(--space-md);
+    }
+    .canto-kicker {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--primary);
+      margin: 0 0 4px;
+    }
+    .canto-heading {
+      font-family: var(--font-headline);
+      font-weight: 600;
+      font-size: clamp(1.6rem, 1.3rem + 1vw, 2.2rem);
+      line-height: 1.12;
+      margin: 0;
+      color: var(--on-surface);
+    }
+    .canto-heading em {
+      font-style: italic;
+      color: var(--primary);
+    }
+    .canto-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      margin-top: var(--space-sm);
+    }
+    .badge-emerald {
+      background: var(--tertiary-container);
+      color: var(--on-tertiary-container);
+      border: 1px solid var(--tertiary-border);
+      padding: 5px 12px;
+      border-radius: var(--rounded-full);
+      font-family: var(--font-label);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .badge-brass {
+      background: var(--secondary-container);
+      color: var(--secondary);
+      border: 1px solid var(--outline-variant);
+      padding: 5px 12px;
+      border-radius: var(--rounded-full);
+      font-family: var(--font-label);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .canto-overview-text {
+      color: var(--on-surface-variant);
+      max-width: 78ch;
+      margin: 0;
+    }
+    .canto-actions {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+
+    /* Chapter Accordion Cards */
+    .chapters-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+    .chapter-card {
+      background: var(--surface-card);
+      border: 1px solid var(--outline-variant);
+      border-radius: var(--rounded-lg);
+      box-shadow: var(--soft-shadow);
+      overflow: hidden;
+      transition: border-color var(--dur-micro) var(--ease-out);
+    }
+    .chapter-card.is-open {
+      border-color: var(--border-featured);
+    }
+    .chapter-card.is-studied {
+      border-left: 4px solid var(--tertiary);
+    }
+    .chapter-trigger {
+      width: 100%;
+      min-height: 54px;
+      background: transparent;
+      border: 0;
+      padding: var(--space-md) var(--space-lg);
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-md);
+      color: var(--on-surface);
+      transition: background-color var(--dur-micro) var(--ease-out);
+    }
+    .chapter-trigger:hover {
+      background: var(--surface-container-low);
+    }
+    .chapter-trigger-main {
+      display: flex;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+    .chapter-num-pill {
+      font-family: var(--font-label);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--primary);
+      background: var(--primary-container);
+      padding: 3px 10px;
+      border-radius: var(--rounded-full);
+      white-space: nowrap;
+    }
+    .chapter-title-text {
+      font-family: var(--font-headline);
+      font-weight: 600;
+      font-size: 1.25rem;
+      line-height: 1.25;
+      color: var(--on-surface);
+    }
+    .chapter-meta-right {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      flex-shrink: 0;
+    }
+    .verse-badge {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--secondary);
+      background: var(--secondary-container);
+      padding: 3px 9px;
+      border-radius: var(--rounded-full);
+      white-space: nowrap;
+    }
+    .studied-tag {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--on-tertiary-container);
+      background: var(--tertiary-container);
+      padding: 3px 9px;
+      border-radius: var(--rounded-full);
+      white-space: nowrap;
+    }
+    .chevron-icon {
+      width: 20px;
+      height: 20px;
+      color: var(--on-surface-variant);
+      transition: transform var(--dur-short) var(--ease-in-out);
+      flex-shrink: 0;
+    }
+    .chapter-card.is-open .chevron-icon {
+      transform: rotate(180deg);
+      color: var(--primary);
+    }
+
+    .chapter-body {
+      display: none;
+      padding: 0 var(--space-lg) var(--space-lg);
+      border-top: 1px solid var(--outline-variant);
+    }
+    .chapter-card.is-open .chapter-body {
+      display: block;
+    }
+    .chapter-section {
+      margin-top: var(--space-md);
+    }
+    .chapter-section-label {
+      font-family: var(--font-label);
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--secondary);
+      margin: 0 0 var(--space-xs);
+    }
+    .chapter-summary {
+      margin: 0;
+      color: var(--on-surface);
+      max-width: 74ch;
+    }
+    .takeaway-box {
+      background: var(--tertiary-container);
+      color: var(--on-tertiary-container);
+      border-left: 4px solid var(--tertiary);
+      border-radius: var(--rounded);
+      padding: var(--space-sm) var(--space-md);
+      font-size: 0.9375rem;
+    }
+    .verse-card {
+      background: var(--surface-container-low);
+      border: 1px solid var(--outline-variant);
+      border-left: 4px solid var(--primary);
+      border-radius: var(--rounded);
+      padding: var(--space-md);
+      margin-top: var(--space-sm);
+    }
+    .verse-ref {
+      font-family: var(--font-label);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin: 0 0 var(--space-xs);
+    }
+    .verse-sanskrit {
+      font-family: var(--font-headline);
+      font-style: italic;
+      font-size: 1.1875rem;
+      line-height: 1.45;
+      color: var(--on-surface);
+      margin: 0 0 var(--space-sm);
+    }
+    .verse-w2w {
+      font-size: 0.875rem;
+      color: var(--on-surface-variant);
+      margin: 0 0 var(--space-xs);
+    }
+    .verse-meaning {
+      font-size: 0.9375rem;
+      color: var(--on-surface);
+      margin: 0;
+    }
+    .chapter-footer-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      margin-top: var(--space-md);
+      padding-top: var(--space-sm);
+      border-top: 1px dashed var(--outline-variant);
+    }
+
+    /* Search Highlights */
+    mark.search-hit {
+      background-color: var(--highlight-bg);
+      color: var(--highlight-ink);
+      padding: 0 2px;
+      border-radius: 3px;
+      font-weight: 600;
+    }
+
+    /* Empty State */
+    .empty-state {
+      text-align: center;
+      background: var(--surface-container-low);
+      border: 1px solid var(--outline-variant);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-xl) var(--space-md);
+    }
+    .empty-state h3 {
+      font-family: var(--font-headline);
+      font-size: 1.5rem;
+      margin: 0 0 var(--space-xs);
+    }
+    .empty-state p {
+      color: var(--on-surface-variant);
+      margin: 0 0 var(--space-md);
+    }
+
+    /* Floating Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      right: var(--space-md);
+      bottom: var(--space-md);
+      z-index: 45;
+      min-height: 44px;
+      min-width: 44px;
+      padding: 0 var(--space-md);
+      border-radius: var(--rounded-full);
+      background: var(--primary);
+      color: var(--on-primary);
+      border: 1px solid var(--border-featured);
+      box-shadow: var(--soft-shadow-raised);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-weight: 700;
+      font-size: 0.8125rem;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(12px);
+      transition: opacity var(--dur-short) var(--ease-out), transform var(--dur-short) var(--ease-out), background-color var(--dur-micro) var(--ease-out);
+    }
+    .back-to-top.is-visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+    .back-to-top:hover { background: var(--primary-hover); }
+
+    .sources-footer {
+      border-top: 1px solid var(--outline-variant);
+      padding-top: var(--space-lg);
+      color: var(--on-surface-variant);
+      font-size: 0.875rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: var(--space-md);
+    }
+
+    @media (max-width: 820px) {
+      .kpi-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 640px) {
+      .page-grid { padding: var(--space-md) var(--space-sm) var(--space-2xl); }
+      .canto-nav { padding: var(--space-xs) var(--space-sm); }
+      .search-input { width: 100%; }
+      .search-box-wrap { width: 100%; }
+      .nav-controls-row { width: 100%; }
+      .control-field { flex: 1 1 auto; }
+      .chapter-trigger { padding: var(--space-sm) var(--space-md); }
+      .chapter-body { padding: 0 var(--space-md) var(--space-md); }
+      .canto-header-card { padding: var(--space-md); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sticky Docked Navigation Bar -->
+  <nav class="canto-nav" aria-label="Canto navigation and Sanskrit search">
+    <div class="canto-nav-inner">
+      <div class="nav-top-row">
+        <div class="nav-brand">
+          <span class="nav-brand-title">Śrīmad-<em>Bhāgavatam</em> Study Guide</span>
+        </div>
+
+        <div class="nav-controls-row">
+          <div class="control-field">
+            <label class="control-label" for="search-input">Search 335 Chapters &amp; Verses (Diacritic-Free OK)</label>
+            <div class="search-box-wrap">
+              <input
+                type="search"
+                id="search-input"
+                class="search-input"
+                placeholder="e.g. Krishna, Sukadeva, Nrsimha, Catuh-sloki…"
+                oninput="handleSearchInput(this.value)"
+                autocomplete="off"
+              >
+              <button type="button" id="clear-search-btn" class="btn btn-ghost" onclick="clearSearch()" style="display:none;">Clear Search</button>
+            </div>
+          </div>
+
+          <div class="control-field">
+            <label class="control-label" for="canto-jump">Jump to Canto</label>
+            <select id="canto-jump" class="canto-select" onchange="selectCanto(Number(this.value))">
+              <option value="1">Canto 1 — Creation (19 Ch)</option>
+              <option value="2">Canto 2 — Cosmic Manifestation (10 Ch)</option>
+              <option value="3">Canto 3 — The Status Quo (33 Ch)</option>
+              <option value="4">Canto 4 — Creation of Fourth Order (31 Ch)</option>
+              <option value="5">Canto 5 — The Creative Impetus (26 Ch)</option>
+              <option value="6">Canto 6 — Prescribed Duties (19 Ch)</option>
+              <option value="7">Canto 7 — The Science of God (15 Ch)</option>
+              <option value="8">Canto 8 — Withdrawal of Creations (24 Ch)</option>
+              <option value="9">Canto 9 — Liberation (24 Ch)</option>
+              <option value="10">Canto 10 — The Summum Bonum (90 Ch)</option>
+              <option value="11">Canto 11 — General History (31 Ch)</option>
+              <option value="12">Canto 12 — Age of Deterioration (13 Ch)</option>
+            </select>
+          </div>
+
+          <div class="control-field">
+            <span class="control-label">Theme</span>
+            <button type="button" id="theme-toggle-btn" class="btn btn-secondary" onclick="toggleTheme()">Dark Mode</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="canto-pills" class="canto-pills-scroll" role="tablist" aria-label="Select Canto"></div>
+    </div>
+  </nav>
+
+  <main class="page-grid" id="top-anchor">
+    <header class="hero-block">
+      <p class="hero-kicker">Granthāvatāra · The Book Form of Lord Śrī Kṛṣṇa</p>
+      <h1 class="hero-title">Śrīmad-<em>Bhāgavatam</em>: Complete 12-Canto Companion</h1>
+      <p class="hero-sub">
+        All 12 Cantos and 335 chapters mapped systematically to Lord Śrī Kṛṣṇa’s transcendental limbs (<em>Padma Purāṇa</em>), the ten Purāṇic subjects (<em>Daśa-lakṣaṇa</em>), landmark verses, and daily <em>bhakti-yoga</em> takeaways.
+      </p>
+      <div class="ornament-rule" aria-hidden="true">◆ 18,000 Verses · 335 Chapters · 12 Cantos ◆</div>
+    </header>
+
+    <!-- Top-Line KPI Cards -->
+    <section class="kpi-grid" aria-label="Study Guide Overview Metrics">
+      <article class="arch-card is-featured">
+        <div class="arch-label">Total Chapters</div>
+        <div class="arch-value">335</div>
+        <div class="arch-caption">Complete 12-Canto Corpus</div>
+      </article>
+      <article class="arch-card">
+        <div class="arch-label">Active Canto Limb</div>
+        <div class="arch-value" id="kpi-limb">Lotus Feet</div>
+        <div class="arch-caption" id="kpi-limb-sub">Cantos 1 &amp; 2</div>
+      </article>
+      <article class="arch-card">
+        <div class="arch-label">Daśa-lakṣaṇa Topic</div>
+        <div class="arch-value" id="kpi-topic">Prelude &amp; Āśraya</div>
+        <div class="arch-caption" id="kpi-topic-sub">Foundation &amp; 10 Topics</div>
+      </article>
+      <article class="arch-card">
+        <div class="arch-label">Study Progress</div>
+        <div class="arch-value" id="kpi-progress">0 / 335</div>
+        <div class="arch-caption" id="kpi-progress-pct">0% Studied</div>
+      </article>
+    </section>
+
+    <!-- Sacred Body / Limb Map Selector -->
+    <section class="anatomy-panel" aria-label="Kṛṣṇa's Limbs across the Twelve Cantos">
+      <div class="anatomy-header">
+        <h2 class="anatomy-title">The Twelve Cantos as Lord Kṛṣṇa’s Transcendental Form</h2>
+        <span class="badge-brass">Step-by-step from Lotus Feet to Crown</span>
+      </div>
+      <div id="anatomy-strip" class="anatomy-strip"></div>
+    </section>
+
+    <!-- Search Status Bar (shown during active search) -->
+    <div id="search-status-bar" class="search-status-bar" style="display:none;">
+      <p id="search-status-text" class="search-status-text"></p>
+      <div class="canto-actions">
+        <button type="button" class="btn btn-secondary" onclick="expandAllVisible()">Expand All Matches</button>
+        <button type="button" class="btn btn-secondary" onclick="collapseAllVisible()">Collapse All</button>
+        <button type="button" class="btn btn-primary" onclick="clearSearch()">Clear Search</button>
+      </div>
+    </div>
+
+    <!-- Active Canto Header -->
+    <section id="canto-header-section" class="canto-header-card" aria-live="polite"></section>
+
+    <!-- Chapters Accordion Feed -->
+    <section id="chapters-container" class="chapters-list" aria-label="Chapter Study Cards"></section>
+
+    <footer class="sources-footer">
+      <div>
+        <strong>Sources &amp; Grounding:</strong> Built from Bhaktivedanta VedaBase (Śrīla Prabhupāda’s Śrīmad-Bhāgavatam structure), Gauranga Darshan Das (<em>Srimad-Bhagavatam: The Book Form of Lord Krishna</em>), Suhotra Swami (<em>Study Guide to Śrīmad-Bhāgavatam Canto One</em>), and Chaitanya Charan Das (<em>Bhagavatam Overview</em>).
+      </div>
+      <div class="canto-actions">
+        <button type="button" class="btn btn-ghost" onclick="exportProgress()">Export Study Notes (TXT)</button>
+        <button type="button" class="btn btn-ghost" id="reset-progress-btn" onclick="resetProgress(this)">Reset Progress</button>
+      </div>
+    </footer>
+  </main>
+
+  <button type="button" id="back-to-top" class="back-to-top" onclick="scrollToTop()" aria-label="Back to top">
+    ↑ Top
+  </button>
+
+  <api-shim></api-shim>
+  <script>
+    // =========================================================================
+    // 1. CANTO METADATA (12 Cantos, Padma Purana Limbs, Dasa-laksana, Verses)
+    // =========================================================================
+    const CANTOS = [
+      {
+        num: 1,
+        title: `Creation`,
+        sanskrit: `Prathama-skandha`,
+        limb: `Lotus Feet`,
+        limbGroup: `Cantos 1 & 2 (Pādau)`,
+        topic: `Bhāgavata Prelude & Qualification`,
+        verseCount: 806,
+        chapterCount: 19,
+        summary: `Sets the mood of devotion in separation (viraha-bhakti) across two narrative assemblies: Sūta Gosvāmī addressing the sages at Naimiṣāraṇya, and the events leading to Mahārāja Parīkṣit meeting Śukadeva Gosvāmī on the banks of the Gaṅgā. Establishes Lord Kṛṣṇa as the Supreme Personality of Godhead (kṛṣṇas tu bhagavān svayam) and bhakti-yoga as the topmost dharma.`
+      },
+      {
+        num: 2,
+        title: `The Cosmic Manifestation`,
+        sanskrit: `Dvitīya-skandha`,
+        limb: `Lotus Feet`,
+        limbGroup: `Cantos 1 & 2 (Pādau)`,
+        topic: `Āśraya Prelude & Ten Topics (Daśa-lakṣaṇa)`,
+        verseCount: 392,
+        chapterCount: 10,
+        summary: `Śukadeva Gosvāmī answers Parīkṣit Mahārāja's urgent inquiry on the duty of one about to die: hear, chant, and remember Lord Hari. Contrasts meditation on the universal form (virāṭ-rūpa) and Supersoul with pure bhakti, reveals the four seed verses (Catuḥ-ślokī Bhāgavatam), and defines the ten Purāṇic subjects (SB 2.10.1).`
+      },
+      {
+        num: 3,
+        title: `The Status Quo`,
+        sanskrit: `Tṛtīya-skandha`,
+        limb: `Thighs`,
+        limbGroup: `Cantos 3 & 4 (Ūrū)`,
+        topic: `Sarga (Primary Creation) & Visarga`,
+        verseCount: 1416,
+        chapterCount: 33,
+        summary: `Through the dialogue of Vidura and Maitreya Ṛṣi, describes primary universal creation (sarga), eternal time, Lord Varāha's rescue of the Earth, Jaya and Vijaya's curse, Vaikuṇṭha, the marriage of Kardama Muni and Devahūti, and Lord Kapiladeva's profound Sāṅkhya teachings culminating in pure devotional service.`
+      },
+      {
+        num: 4,
+        title: `The Creation of the Fourth Order`,
+        sanskrit: `Caturtha-skandha`,
+        limb: `Thighs`,
+        limbGroup: `Cantos 3 & 4 (Ūrū)`,
+        topic: `Visarga (Secondary Creation)`,
+        verseCount: 1446,
+        chapterCount: 31,
+        summary: `Unveils secondary creation through Svāyambhuva Manu's lineage and contrasts exemplary devotion with material pride: Satī and Lord Śiva, Dakṣa's offense, Dhruva Mahārāja's intense penance and realization, the tyrannical King Vena, Emperor Pṛthu's ideal rule and teachings with the four Kumāras, and the Pracetās.`
+      },
+      {
+        num: 5,
+        title: `The Creative Impetus`,
+        sanskrit: `Pañcama-skandha`,
+        limb: `Lotus Navel`,
+        limbGroup: `Canto 5 (Nābhi)`,
+        topic: `Sthānam (Planetary Positioning) & Visarga`,
+        verseCount: 668,
+        chapterCount: 26,
+        summary: `Traces the dynasty of King Priyavrata, including Nābhi, Lord Ṛṣabhadeva's transcendental instructions to His hundred sons, and King Bharata's three lives (king, deer, and Jaḍa Bharata instructing King Rahūgaṇa), before mapping the cosmic geography of Bhū-maṇḍala, planetary systems, and the hellish realms.`
+      },
+      {
+        num: 6,
+        title: `Prescribed Duties for Mankind`,
+        sanskrit: `Ṣaṣṭha-skandha`,
+        limb: `Chest`,
+        limbGroup: `Canto 6 (Bhujāntaram / Vakṣa)`,
+        topic: `Poṣaṇam (Protection of Devotees)`,
+        verseCount: 853,
+        chapterCount: 19,
+        summary: `Centred on Poṣaṇam—the Lord's extraordinary protection of His devotees even when they falter. Opens with the deliverance of Ajāmila by chanting Nārāyaṇa's holy name, details Dakṣa's sixty daughters, Indra's struggles, the sublime prayers of Vṛtrāsura (formerly King Citraketu), and the Puṁsavana vow.`
+      },
+      {
+        num: 7,
+        title: `The Science of God`,
+        sanskrit: `Saptama-skandha`,
+        limb: `Arms`,
+        limbGroup: `Cantos 7 & 8 (Dor-yugalam)`,
+        topic: `Ūti (Auspicious & Inauspicious Inclinations)`,
+        verseCount: 750,
+        chapterCount: 15,
+        summary: `Examines ūti—the karmic inclinations of living entities—by contrasting pure śuddha-bhakti (personified by five-year-old Prahlāda Mahārāja protected by Lord Nṛsiṁhadeva against Hiraṇyakaśipu) with mixed devotional duties (miśra-bhakti) across the four varṇas and āśramas explained by Nārada Muni.`
+      },
+      {
+        num: 8,
+        title: `Withdrawal of the Cosmic Creations`,
+        sanskrit: `Aṣṭama-skandha`,
+        limb: `Arms`,
+        limbGroup: `Cantos 7 & 8 (Dor-yugalam)`,
+        topic: `Manvantara (Reign of the Manus)`,
+        verseCount: 931,
+        chapterCount: 24,
+        summary: `Presents the fourteen Manvantaras in a day of Brahmā and the six administrative offices in each age, illuminated by great deliverance pastimes: Gajendra's surrender, the churning of the Milk Ocean (Samudra-manthana) and Mohinī-mūrti, Bali Mahārāja's total surrender to Lord Vāmanadeva, and Matsya Avatāra.`
+      },
+      {
+        num: 9,
+        title: `Liberation`,
+        sanskrit: `Navama-skandha`,
+        limb: `Throat`,
+        limbGroup: `Canto 9 (Kaṇṭha)`,
+        topic: `Īśānukathā (Dynasties, Incarnations & Devotees)`,
+        verseCount: 966,
+        chapterCount: 24,
+        summary: `Chronicles the Solar Dynasty (Sūrya-vaṁśa: Ambariṣa Mahārāja and Durvāsā Muni, Bhagīratha, Lord Rāmacandra) and Lunar Dynasty (Candra-vaṁśa: Purūravā, Paraśurāma, Yayāti, Duṣyanta, Rantideva, and Yadu). Demonstrates that royal opulence fades, while sincere bhakti endures eternally.`
+      },
+      {
+        num: 10,
+        title: `The Summum Bonum`,
+        sanskrit: `Daśama-skandha`,
+        limb: `Lotus Face`,
+        limbGroup: `Canto 10 (Mukhāravindam)`,
+        topic: `Āśraya (The Supreme Shelter, Lord Kṛṣṇa)`,
+        verseCount: 3947,
+        chapterCount: 90,
+        summary: `The longest and crowning canto, revealing Lord Kṛṣṇa's sweetest pastimes (mādhurya) in Vṛndāvana, Mathurā, Dvārakā, and Hastināpura—from His birth, Dāmodara-līlā, Brahmā-vimohana, Govardhana-pūjā, and the Rāsa-pañcādhyāya (including Gopī-gīta) to Rukmiṇī-haraṇa, Sudāmā Vipra, and Kurukṣetra.`
+      },
+      {
+        num: 11,
+        title: `General History`,
+        sanskrit: `Ekādaśa-skandha`,
+        limb: `Forehead`,
+        limbGroup: `Canto 11 (Lalāṭa-paṭṭam)`,
+        topic: `Mukti (Liberation & Uddhava-gītā)`,
+        verseCount: 1367,
+        chapterCount: 31,
+        summary: `Details the final instructions before Kṛṣṇa's departure: the Nava-yogendras' dialogue with King Nimi on Bhāgavata-dharma, the 24 gurus of the Avadhūta Brāhmaṇa, the monumental Uddhava-gītā (Chapters 6–29) explaining sāṅkhya, yoga, and pure bhakti, the withdrawal of the Yadu dynasty, and Kṛṣṇa's return to His abode.`
+      },
+      {
+        num: 12,
+        title: `The Age of Deterioration`,
+        sanskrit: `Dvādaśa-skandha`,
+        limb: `Crown / Head`,
+        limbGroup: `Canto 12 (Śira)`,
+        topic: `Nirodha (Fourfold Dissolution & Conclusion)`,
+        verseCount: 547,
+        chapterCount: 13,
+        summary: `Concludes the Bhāgavatam with prophetic histories of Kali-yuga, the supreme remedy of Hari-nāma saṅkīrtana, the four kinds of pralaya (nitya, naimittika, prākṛtika, ātyantika), Parīkṣit Mahārāja's fearless departure, Mārkaṇḍeya Ṛṣi's realization of Kṛṣṇa's māyā, and the final glorification of the Bhāgavatam.`
+      }
+    ];
+
+    // =========================================================================
+    // 2. LANDMARK VERSES DICTIONARY (Keyed by "c.ch")
+    // =========================================================================
+    const LANDMARK_VERSES = {
+      "1.1": [
+        {
+          ref: `SB 1.1.1`,
+          sanskrit: `janmādy asya yato ’nvayād itarataś cārtheṣv abhijñaḥ svarāṭ / tene brahma hṛdā ya ādi-kavaye muhyanti yat sūrayaḥ`,
+          w2w: `janma-ādi — creation, maintenance, and dissolution; asya — of this universe; yataḥ — from whom; anvayāt — directly; itarataḥ — indirectly; artheṣu — in all purposes; abhijñaḥ — fully cognizant; svarāṭ — fully independent; tene — imparted; brahma — Vedic knowledge; hṛdā — through the heart; ādi-kavaye — unto Brahmā.`,
+          meaning: `Meditates upon the Absolute Truth (Lord Śrī Kṛṣṇa), the source of cosmic creation, maintenance, and dissolution, who is directly and indirectly conscious of all manifestations and imparted Vedic wisdom into Brahmā's heart.`
+        },
+        {
+          ref: `SB 1.1.2`,
+          sanskrit: `dharmaḥ projjhita-kaitavo ’tra paramo nirmatsarāṇāṁ satāṁ / vedyaṁ vāstavam atra vastu śivadaṁ tāpa-trayonmūlanam`,
+          w2w: `dharmaḥ — religiosity; projjhita — completely rejected; kaitavaḥ — fruitive/cheating; atra — herein; paramaḥ — highest; nirmatsarāṇām — of the non-envious; satām — pure devotees; vāstavam vastu — ultimate reality; tāpa-traya-unmūlanam — uprooting the threefold miseries.`,
+          meaning: `Completely rejecting all materially motivated cheating religion, Śrīmad-Bhāgavatam propounds the highest truth realizable by pure-hearted, non-envious devotees, uprooting the threefold miseries.`
+        },
+        {
+          ref: `SB 1.1.3`,
+          sanskrit: `nigama-kalpa-taror galitaṁ phalaṁ / śuka-mukhād amṛta-drava-saṁyutam / pibata bhāgavataṁ rasam ālayam`,
+          w2w: `nigama — Vedic literatures; kalpa-taroḥ — desire tree; galitam — fully ripened; phalam — fruit; śuka-mukhāt — from the lips of Śukadeva Gosvāmī; amṛta — nectar; pibata — relish; rasam ālayam — full of transcendental mellows.`,
+          meaning: `Relish Śrīmad-Bhāgavatam, the ripened fruit of the desire-tree of the Vedas, rendered even more nectarean by emanating from the lips of Śukadeva Gosvāmī.`
+        }
+      ],
+      "1.2": [
+        {
+          ref: `SB 1.2.6`,
+          sanskrit: `sa vai puṁsāṁ paro dharmo yato bhaktir adhokṣaje / ahaituky apratihatā yayātmā suprasīdati`,
+          w2w: `saḥ — that; vai — indeed; puṁsām — for humanity; paraḥ dharmaḥ — supreme occupation; yataḥ — by which; bhaktiḥ — devotional service; adhokṣaje — unto the Transcendence; ahaitukī — unmotivated; apratihatā — uninterrupted; yayā — by which; ātmā — the self; suprasīdati — becomes completely satisfied.`,
+          meaning: `The supreme occupation (dharma) for all humanity is that by which men can attain to loving devotional service unto the transcendent Lord—unmotivated and uninterrupted—which completely satisfies the soul.`
+        }
+      ],
+      "1.3": [
+        {
+          ref: `SB 1.3.28`,
+          sanskrit: `ete cāṁśa-kalāḥ puṁsaḥ kṛṣṇas tu bhagavān svayam / indrāri-vyākulaṁ lokaṁ mṛḍayanti yuge yuge`,
+          w2w: `ete — all these; ca — and; aṁśa — plenary portions; kalāḥ — parts of plenary portions; puṁsaḥ — of the Supreme; kṛṣṇaḥ — Lord Kṛṣṇa; tu — but; bhagavān svayam — the Supreme Personality of Godhead Himself; mṛḍayanti — give protection; yuge yuge — age after age.`,
+          meaning: `All the listed incarnations are either plenary portions or portions of plenary portions of the Lord, but Lord Śrī Kṛṣṇa is the original Supreme Personality of Godhead Himself (the paribhāṣā-sūtra of the entire Bhāgavatam).`
+        }
+      ],
+      "1.13": [
+        {
+          ref: `SB 1.13.10`,
+          sanskrit: `bhavad-vidhā bhāgavatās tīrtha-bhūtāḥ svayaṁ vibho / tīrthī-kurvanti tīrthāni svāntaḥ-sthena gadābhṛtā`,
+          w2w: `bhavat-vidhāḥ — like your good self; bhāgavatāḥ — pure devotees; tīrtha-bhūtāḥ — personified holy places; svayam — personally; tīrthī-kurvanti — purify into pilgrimage sites; sva-antaḥ-sthena — situated in the heart; gadābhṛtā — by Lord Kṛṣṇa.`,
+          meaning: `Devotees like Vidura are themselves personified places of pilgrimage; carrying the Lord within their hearts, they sanctify all holy places they visit.`
+        }
+      ],
+      "1.19": [
+        {
+          ref: `SB 1.19.24`,
+          sanskrit: `tataś ca vaḥ pṛcchyam imaṁ vipṛcche viśrabhya viprā iti kṛtyatāyām / sarvātmanā mriyamāṇaiś ca kṛtyaṁ śuddhaṁ ca tatrāmṛśatābhiyuktāḥ`,
+          w2w: `tataḥ — therefore; vaḥ — unto you; pṛcchyam — inquiry; viprāḥ — brāhmaṇas; sarvātmanā — in all respects; mriyamāṇaiḥ — by one about to die; kṛtyam — duty; śuddham — pure/unalloyed.`,
+          meaning: `Parīkṣit Mahārāja asks the assembled sages and Śukadeva Gosvāmī the fundamental question of the Bhāgavatam: what is the pure, essential duty of every human being, especially one preparing for death?`
+        }
+      ],
+      "2.9": [
+        {
+          ref: `SB 2.9.33–36 (Catuḥ-ślokī Bhāgavatam)`,
+          sanskrit: `aham evāsam evāgre nānyad yat sad-asat-param / paścād ahaṁ yad etac ca yo ’vaśiṣyeta so ’smy aham (33) … etāvad eva jijñāsyaṁ tattva-jijñāsunātmanaḥ / anvaya-vyatirekābhyāṁ yat syāt sarvatra sarvadā (36)`,
+          w2w: `aham eva — I alone; āsam — existed; agre — before creation; na anyat — nothing else; sat-asat-param — beyond cause and effect; anvaya-vyatirekābhyām — directly and indirectly; sarvatra sarvadā — everywhere and always.`,
+          meaning: `The four seed verses spoken by the Supreme Lord to Brahmā: (1) The Lord's eternal supreme existence before, during, and after creation; (2) Māyā as His reflected energy; (3) His simultaneous immanence and transcendence; and (4) Studying reality through direct presence and indirect absence to realize Kṛṣṇa.`
+        }
+      ],
+      "2.10": [
+        {
+          ref: `SB 2.10.1`,
+          sanskrit: `atra sargo visargaś ca sthānaṁ poṣaṇam ūtayaḥ / manvantareśānukathā nirodho muktir āśrayaḥ`,
+          w2w: `sargaḥ — primary creation; visargaḥ — secondary creation; sthānam — planetary arrangement; poṣaṇam — protection; ūtayaḥ — creative impetus; manvantara — reigns of Manus; īśa-anukathā — topics of the Lord and devotees; nirodhaḥ — winding up; muktiḥ — liberation; āśrayaḥ — the supreme shelter.`,
+          meaning: `Defines the ten characteristic subjects (Daśa-lakṣaṇa) of a Mahā-purāṇa, where the first nine serve to illuminate the tenth: Āśraya-tattva, Lord Śrī Kṛṣṇa.`
+        }
+      ],
+      "3.25": [
+        {
+          ref: `SB 3.25.25`,
+          sanskrit: `satāṁ prasaṅgān mama vīrya-saṁvido bhavanti hṛt-karṇa-rasāyanāḥ kathāḥ / taj-joṣaṇād āśv apavarga-vartmani śraddhā ratir bhaktir anukramiṣyati`,
+          w2w: `satām prasaṅgāt — in the association of pure devotees; mama vīrya-saṁvidaḥ — discussions of My glories; hṛt-karṇa-rasāyanāḥ — elixir to heart and ears; śraddhā — faith; ratiḥ — attachment; bhaktiḥ — pure devotion; anukramiṣyati — will follow in sequence.`,
+          meaning: `Lord Kapila reveals the progressive alchemy of bhakti: in the association of saintly devotees, hearing Kṛṣṇa-kathā acts as nectar for the ears and heart, awakening faith (śraddhā), attachment (rati), and pure devotion (bhakti).`
+        }
+      ],
+      "4.22": [
+        {
+          ref: `SB 4.22.39`,
+          sanskrit: `yat-pāda-paṅkaja-palāśa-vilāsa-bhaktyā karmāśayaṁ grathitam udgrathayanti santaḥ / tadvan na rikta-matayo yatayo ’pi ruddha-sroto-gaṇās tam araṇaṁ bhaja vāsudevam`,
+          w2w: `yat-pāda-paṅkaja — whose lotus feet; palāśa — petals (toes); vilāsa — pastimes; bhaktyā — by devotional service; karma-āśayam grathitam — deep-rooted knot of fruitive desires; udgrathayanti — untie; tam — Him; vāsudevam — Lord Kṛṣṇa; bhaja — worship.`,
+          meaning: `Sanat-kumāra instructs Mahārāja Pṛthu: even great yogīs controlling their senses struggle to cut the knot of karmic desire, whereas devotees easily untie it by absorbing themselves in the lotus feet of Lord Vāsudeva.`
+        }
+      ],
+      "5.5": [
+        {
+          ref: `SB 5.5.1`,
+          sanskrit: `nāyaṁ deho deha-bhājāṁ nṛloke kaṣṭān kāmān arhate viḍ-bhujāṁ ye / tapo divyaṁ putrakā yena sattvaṁ śuddhyed yasmād brahma-saukhyaṁ tv anantam`,
+          w2w: `na ayam dehaḥ — not this human body; kaṣṭān kāmān — troublesome sense gratification; viḍ-bhujām — of stool-eaters; tapaḥ divyam — divine austerity; putrakāḥ — O my sons; sattvam śuddhyet — existence becomes purified; brahma-saukhyam — spiritual bliss; anantam — unlimited.`,
+          meaning: `Lord Ṛṣabhadeva advises His sons: this rare human body is not meant for animalistic sense pleasure; it is meant for divine austerity (tapasya) that purifies existence and awards unlimited spiritual bliss.`
+        }
+      ],
+      "6.3": [
+        {
+          ref: `SB 6.3.22`,
+          sanskrit: `etāvān eva loke ’smin puṁsāṁ dharmaḥ paraḥ smṛtaḥ / bhakti-yogo bhagavati tan-nāma-grahaṇādibhiḥ`,
+          w2w: `etāvān eva — this much indeed; loke asmin — in this world; puṁsām — of humanity; dharmaḥ paraḥ — supreme religious principle; bhakti-yogaḥ — devotional service; bhagavati — unto the Supreme Lord; tat-nāma-grahaṇa-ādibhiḥ — beginning with chanting His holy names.`,
+          meaning: `Yamarāja instructs the Yamadūtas: the highest religious duty in this world is bhakti-yoga unto the Supreme Personality of Godhead, beginning with chanting His holy names.`
+        }
+      ],
+      "6.11": [
+        {
+          ref: `SB 6.11.24–27`,
+          sanskrit: `ahaṁ hare tava pādaika-mūla-dāsānudāso bhavitāsmi bhūyaḥ / manaḥ smaretāsu-pater guṇāṁs te gṛṇīta vāk karma karotu kāyaḥ (24)`,
+          w2w: `aham — I; hare — O Hari; pāda-eka-mūla — shelter of Your lotus feet; dāsa-anudāsaḥ — servant of the servant; manaḥ smaret — let mind remember; gṛṇīta vāk — let speech glorify; karma karotu kāyaḥ — let body serve.`,
+          meaning: `Vṛtrāsura's four celebrated prayers (catur-ślokī of Vṛtra): longing not for heaven or liberation, but solely to become the servant of the servant of the Lord's lotus feet, engaging mind, words, and body in His service.`
+        }
+      ],
+      "7.5": [
+        {
+          ref: `SB 7.5.23–24`,
+          sanskrit: `śravaṇaṁ kīrtanaṁ viṣṇoḥ smaraṇaṁ pāda-sevanam / arcanaṁ vandanaṁ dāsyaṁ sakhyam ātma-nivedanam (23)`,
+          w2w: `śravaṇam — hearing; kīrtanam — chanting; viṣṇoḥ — of Lord Viṣṇu; smaraṇam — remembering; pāda-sevanam — serving the feet; arcanam — deity worship; vandanam — offering prayers; dāsyam — servitude; sakhyam — friendship; ātma-nivedanam — full self-surrender.`,
+          meaning: `Prahlāda Mahārāja instructs his father Hiraṇyakaśipu on the nine classic processes of devotional service (navadhā-bhakti), declaring one who offers these nine unto Viṣṇu to be the most learned.`
+        }
+      ],
+      "7.6": [
+        {
+          ref: `SB 7.6.1`,
+          sanskrit: `kaumāra ācaret prājño dharmān bhāgavatān iha / durlabhaṁ mānuṣaṁ janma tad apy adhruvam arthadam`,
+          w2w: `kaumāre — in childhood; ācaret — should practice; prājñaḥ — an intelligent person; dharmān bhāgavatān — principles of devotional service; durlabham — rarely obtained; mānuṣam janma — human birth; adhruvam — temporary; arthadam — most meaningful.`,
+          meaning: `Prahlāda Mahārāja tells his schoolmates: a wise person practices Bhāgavata-dharma from early childhood, for human birth is rare, temporary, yet capable of achieving the supreme goal.`
+        }
+      ],
+      "8.3": [
+        {
+          ref: `SB 8.3.1–2`,
+          sanskrit: `oṁ namo bhagavate tasmai yata etac cid-ātmakam / puruṣāyādi-bījāya pareśāyābhidhīmahi`,
+          w2w: `om — O Supreme Lord; namaḥ — obeisances; bhagavate — unto the Personality of Godhead; yataḥ — from whom; cid-ātmakam — animated consciousness; ādi-bījāya — original seed; pareśāya — supreme controller; abhidhīmahi — I meditate.`,
+          meaning: `Gajendra, gripped by the crocodile in utter helplessness, offers pure unalloyed surrender unto the Supreme Lord, leading Lord Viṣṇu to descend immediately upon Garuḍa to deliver him.`
+        }
+      ],
+      "9.4": [
+        {
+          ref: `SB 9.4.63`,
+          sanskrit: `ahaṁ bhakta-parādhīno hy asvatantra iva dvija / sādhubhir grasta-hṛdayo bhaktair bhakta-jana-priyaḥ`,
+          w2w: `aham — I; bhakta-parādhīnaḥ — controlled by My devotees; asvatantraḥ iva — as if not independent; dvija — O brāhmaṇa; sādhubhiḥ — by saintly devotees; grasta-hṛdayaḥ — My heart is captured.`,
+          meaning: `Lord Viṣṇu tells Durvāsā Muni: "I am completely under the control of My pure devotees; indeed, I am not at all independent, for My heart has been taken over by saintly devotees like Ambariṣa."`
+        }
+      ],
+      "10.9": [
+        {
+          ref: `SB 10.9.14`,
+          sanskrit: `sva-mātuḥ svinna-gātrāyā visrasta-kabara-srajaḥ / dṛṣṭvā pariśramaṁ kṛṣṇaḥ kṛpayāsīt sva-bandhane`,
+          w2w: `sva-mātuḥ — of His own mother Yaśodā; svinna-gātrāyāḥ — perspiring limbs; pariśramam — fatigue; dṛṣṭvā — seeing; kṛṣṇaḥ — Lord Kṛṣṇa; kṛpayā — out of compassion; āsīt — agreed; sva-bandhane — to be bound.`,
+          meaning: `Seeing Mother Yaśodā exhausted and perspiring while trying to tie Him with ropes that always fell two fingers short, the Supreme Lord Kṛṣṇa mercifully consented to be bound by her pure maternal love.`
+        }
+      ],
+      "10.14": [
+        {
+          ref: `SB 10.14.8`,
+          sanskrit: `tat te ’nukampāṁ su-samīkṣamāṇo bhuñjāna evātma-kṛtaṁ vipākam / hṛd-vāg-vapurbhir vidadhan namas te jīveta yo mukti-pade sa dāya-bhāk`,
+          w2w: `tat — therefore; te anukampām — Your mercy; su-samīkṣamāṇaḥ — earnestly awaiting; bhuñjānaḥ — enduring; ātma-kṛtam vipākam — fruits of past deeds; hṛd-vāg-vapurbhiḥ — with heart, words, and body; namaḥ — obeisances; mukti-pade — to liberation; dāya-bhāk — rightful heir.`,
+          meaning: `Lord Brahmā prays: one who earnestly looks for Your mercy while patiently enduring the reactions of past karma, offering respects with heart, words, and body, becomes the rightful heir to devotional liberation.`
+        }
+      ],
+      "10.33": [
+        {
+          ref: `SB 10.33.36`,
+          sanskrit: `anugrahāya bhaktānāṁ mānuṣaṁ deham āśritaḥ / bhajate tādṛśīḥ krīḍā yāḥ śrutvā tat-paro bhavet`,
+          w2w: `anugrahāya — to bestow mercy; bhaktānām — upon the devotees; mānuṣam deham — humanlike form; āśritaḥ — assuming; bhajate — performs; tādṛśīḥ krīḍāḥ — such pastimes; yāḥ śrutvā — hearing which; tat-paraḥ — devoted to Him.`,
+          meaning: `Śukadeva Gosvāmī explains the purpose of Rāsa-līlā: the Lord displays sweet humanlike pastimes out of compassion so that anyone who faithfully hears them becomes completely devoted to Him.`
+        }
+      ],
+      "11.2": [
+        {
+          ref: `SB 11.2.37`,
+          sanskrit: `bhayaṁ dvitīyābhiniveśataḥ syād īśād apetasya viparyayo ’smṛtiḥ / tan-māyayāto budha ābhajet taṁ bhaktyaikayeśaṁ guru-devatātmā`,
+          w2w: `bhayam — fear; dvitīya-abhiniveśataḥ — from absorption in duality/matter; īśāt apetasya — of one turned away from the Lord; asmṛtiḥ — forgetfulness; budhaḥ — an intelligent person; ābhajet — should worship; bhaktyā ekayā — with unalloyed devotion; guru-devatā-ātmā — accepting the guru as one's deity and soul.`,
+          meaning: `Kavi Yogendra explains the root of fear: turning away from the Supreme Lord and becoming absorbed in material duality creates forgetfulness and fear. Therefore, the wise worship Him with unalloyed bhakti under a bona fide guru.`
+        }
+      ],
+      "11.9": [
+        {
+          ref: `SB 11.9.29`,
+          sanskrit: `labdhvā su-durlabham idaṁ bahu-sambhavānte mānuṣyam artha-dam anityam apīha dhīraḥ / tūrṇaṁ yateta na pated anu-mṛtyu yāvan niḥśreyasāya viṣayaḥ khalu sarvataḥ syāt`,
+          w2w: `labdhvā — having obtained; su-durlabham — exceedingly rare; mānuṣyam — human life; artha-dam — awarding real purpose; anityam api — though temporary; dhīraḥ — sober person; tūrṇam — immediately; yateta — should strive; niḥśreyasāya — for ultimate spiritual perfection.`,
+          meaning: `The Avadhūta Brāhmaṇa tells King Yadu: having obtained this exceedingly rare human form after many births, a sober person should immediately strive for ultimate spiritual perfection before death arrives, since sense pleasures are available in every species.`
+        }
+      ],
+      "12.3": [
+        {
+          ref: `SB 12.3.51`,
+          sanskrit: `kaler doṣa-nidhe rājann asti hy eko mahān guṇaḥ / kīrtanād eva kṛṣṇasya mukta-saṅgaḥ paraṁ vrajet`,
+          w2w: `kaleḥ — of the age of Kali; doṣa-nidheḥ — ocean of faults; rājan — O King; asti hi — there is indeed; ekaḥ mahān guṇaḥ — one great saving quality; kīrtanāt eva — simply by chanting; kṛṣṇasya — of Lord Kṛṣṇa; mukta-saṅgaḥ — freed from bondage; param vrajet — attains the supreme destination.`,
+          meaning: `Śukadeva Gosvāmī assures King Parīkṣit: although Kali-yuga is an ocean of faults, it possesses one extraordinary virtue—simply by chanting the holy names of Kṛṣṇa (saṅkīrtana), one becomes freed from all material contamination and attains the supreme abode.`
+        }
+      ],
+      "12.13": [
+        {
+          ref: `SB 12.13.15`,
+          sanskrit: `sarva-vedānta-sāraṁ hi śrī-bhāgavatam iṣyate / tad-rasāmṛta-tṛptasya nānyatra syād ratiḥ kvacit`,
+          w2w: `sarva-vedānta-sāram — essence of all Vedānta philosophy; śrī-bhāgavatam — Śrīmad-Bhāgavatam; tad-rasa-amṛta — its nectarean mellow; tṛptasya — for one satisfied by; na anyatra — nowhere else; ratiḥ — attraction.`,
+          meaning: `Declared to be the essence of all Vedānta philosophy; one who feels satisfied by its nectarean mellow will never be attracted to any other literature.`
+        },
+        {
+          ref: `SB 12.13.23`,
+          sanskrit: `nāma-saṅkīrtanaṁ yasya sarva-pāpa-praṇāśanam / praṇāmo duḥkha-śamanas taṁ namāmi hariṁ param`,
+          w2w: `nāma-saṅkīrtanam — congregational chanting of the holy names; yasya — whose; sarva-pāpa — all sins; praṇāśanam — destroys; praṇāmaḥ — bowing down; duḥkha-śamanaḥ — relieves all distress; tam — unto Him; namāmi — I offer obeisances; harim param — Supreme Lord Hari.`,
+          meaning: `The concluding verse of Śrīmad-Bhāgavatam: I offer my respectful obeisances unto the Supreme Lord Hari, the congregational chanting of whose holy names destroys all sinful reactions, and the offering of obeisances unto whom relieves all material suffering.`
+        }
+      ]
+    };
+
+    // =========================================================================
+    // 3. ALL 335 CHAPTERS ACROSS 12 CANTOS (Compact Structured Corpus)
+    // Format per canto: [ [chNum, title, summary, takeaway], ... ]
+    // =========================================================================
+    const CHAPTER_DATA = {
+      1: [
+        [1, `Questions by the Sages`, `Invocation to the Absolute Truth (SB 1.1.1–3); sages of Naimiṣāraṇya led by Śaunaka Ṛṣi ask Sūta Gosvāmī six foundational questions on the ultimate welfare of humanity in Kali-yuga.`, `Begin scriptural inquiry with humility and sincerity before a qualified teacher.`],
+        [2, `Divinity and Divine Service`, `Sūta glorifies Śukadeva Gosvāmī and answers the first four questions: pure bhakti (ahaitukī apratihatā) is the supreme dharma, purifying the heart of anarthas through hearing Kṛṣṇa-kathā.`, `Prioritize daily śravaṇam and kīrtanam over fruitless ritual or speculation.`],
+        [3, `Kṛṣṇa Is the Source of All Incarnations`, `Describes the three Puruṣa-avatāras, enumerates twenty-two principal līlā-avatāras, and concludes with the paribhāṣā-sūtra: Lord Kṛṣṇa is the original Supreme Personality of Godhead (SB 1.3.28).`, `See Śrīmad-Bhāgavatam as the sun-like literary incarnation of Kṛṣṇa in Kali-yuga.`],
+        [4, `The Appearance of Śrī Nārada`, `Śaunaka asks how Vyāsadeva compiled the Bhāgavatam and how Parīkṣit met Śukadeva. Vyāsadeva divides the Vedas and writes Mahābhārata yet feels dissatisfied at heart until Nārada Muni arrives.`, `Academic knowledge without glorifying the Lord leaves the heart unfulfilled.`],
+        [5, `Nārada’s Instructions on Śrīmad-Bhāgavatam for Vyāsadeva`, `Nārada diagnoses Vyāsa's despondency: he described dharma, artha, kāma, and mokṣa without directly highlighting pure bhakti. Nārada shares his childhood as a maidservant's son serving bhaktivedānta sages.`, `Direct every talent, art, and branch of knowledge to glorify the Supreme Lord.`],
+        [6, `Nārada’s Conversation with Vyāsadeva`, `Nārada recounts his mother's passing, turning tragedy into uninterrupted spiritual absorption, seeing a fleeting flash of the Lord in his heart, hearing the Lord's promise in separation, and attaining a spiritual body.`, `Convert life's inevitable losses into deeper dependence on Kṛṣṇa.`],
+        [7, `The Son of Droṇa Punished`, `Vyāsadeva enters samādhi and perceives the Lord, Māyā, and the jīva rescued by bhakti, then compiles the Bhāgavatam and teaches Śukadeva. Narrative shifts to Aśvatthāmā's night slaughter and Arjuna subduing him.`, `Forgiveness and restraint over revenge reflect true spiritual maturity.`],
+        [8, `Prayers by Queen Kuntī and Parīkṣit Saved`, `Kṛṣṇa enters Uttarā's womb to neutralize Aśvatthāmā's brahmāstra and save unborn Parīkṣit. As Kṛṣṇa prepares to leave for Dvārakā, Queen Kuntī offers her immortal prayers welcoming calamities if they bring Kṛṣṇa's remembrance.`, `Pray for unbroken attachment to Kṛṣṇa rather than material comfort.`],
+        [9, `The Passing Away of Bhīṣmadeva in the Presence of Lord Kṛṣṇa`, `Kṛṣṇa leads Yudhiṣṭhira to Bhīṣma on his bed of arrows. Bhīṣma pacifies Yudhiṣṭhira, glorifies Kṛṣṇa's loving partiality to Arjuna on the battlefield, fixes his eyes on Kṛṣṇa, and attains perfection.`, `Train the mind daily to remember Kṛṣṇa so our final moment is serene.`],
+        [10, `Departure of Lord Kṛṣṇa for Dvārakā`, `Yudhiṣṭhira rules righteously in complete harmony with nature. Lord Kṛṣṇa takes leave of the Pāṇḍavas amid deep separation while the ladies of Hastināpura glorify His transcendental pastimes.`, `Cultivate viraha-bhakti—longing for the Lord even amidst duty.`],
+        [11, `Lord Kṛṣṇa’s Entrance into Dvārakā`, `Kṛṣṇa sounds His Pāñcajanya conch upon reaching Dvārakā. Citizens, elders, mother Devakī, and His 16,108 queens joyfully welcome Him, illustrating His transcendental purity untouched by material modes.`, `Approach the temple deity with the affectionate eagerness of Dvārakā's citizens.`],
+        [12, `Birth of Emperor Parīkṣit`, `Describes Parīkṣit's vision of the thumb-sized four-armed Lord in the womb. Brāhmaṇas perform his birth ceremony and foretell his saintly virtues, devotion, and eventual fearless departure.`, `See the Lord's protecting hand even in life's earliest and darkest trials.`],
+        [13, `Dhṛtarāṣṭra Quits Home`, `Vidura returns from pilgrimage—declared a walking tīrtha (SB 1.13.10)—and speaks incisive words of detachment that awaken aged Dhṛtarāṣṭra and Gāndhārī to leave Hastināpura for spiritual liberation.`, `Heed honest spiritual counsel from well-wishers before old age overtakes us.`],
+        [14, `The Disappearance of Lord Kṛṣṇa`, `Seeing ominous signs across nature and society, King Yudhiṣṭhira anxiously awaits Arjuna's return from Dvārakā and senses that Lord Kṛṣṇa may have concluded His earthly pastimes.`, `Recognize the impermanence of earthly prosperity when Kṛṣṇa withdraws.`],
+        [15, `The Pāṇḍavas Retire Timely`, `Arjuna returns grief-stricken and confirms Kṛṣṇa's departure and the end of the Yadu dynasty. Remembering Bhagavad-gītā, Arjuna regains composure; the Pāṇḍavas enthrone Parīkṣit and depart northward to perfection.`, `Anchor grief in the living instructions of Bhagavad-gītā.`],
+        [16, `How Parīkṣit Received the Age of Kali`, `Parīkṣit tours his empire and encounters Dharma (as a one-legged bull) and Mother Earth (as a cow) lamenting Kṛṣṇa's departure while enumerating His forty supreme transcendental qualities.`, `Honor Dharma's four pillars: austerity, cleanliness, mercy, and truthfulness.`],
+        [17, `Punishment and Reward of Kali`, `Parīkṣit subdues the personified Kali, who surrenders. Balancing justice and mercy, Parīkṣit restricts Kali to four places—gambling, intoxication, illicit sex, and animal slaughter—plus gold.`, `Guard personal sādhana strictly against Kali's four strongholds.`],
+        [18, `Mahārāja Parīkṣit Cursed by a Brāhmaṇa Boy`, `Exhausted while hunting, Parīkṣit feels slighted by meditating Śamīka Ṛṣi and drapes a dead serpent around his neck. Śamīka's hot-headed young son Śṛṅgī curses Parīkṣit to die of a snakebite within seven days.`, `Avoid rash anger and respect saintly composure even under provocation.`],
+        [19, `The Appearance of Śukadeva Gosvāmī`, `Accepting the curse gratefully as Kṛṣṇa's grace, Parīkṣit renounces his throne and sits fasting on the Gaṅgā's bank. Sixteen-year-old Śukadeva Gosvāmī arrives and Parīkṣit asks the timeless question of a dying soul (SB 1.19.24).`, `Prepare for life's final exam today by prioritizing Hari-kathā.`]
+      ],
+      2: [
+        [1, `The First Step in God Realization`, `Śukadeva applauds Parīkṣit's question, condemns wasted life in material entanglement, and teaches meditation on the Universal Form (Virāṭ-rūpa) as a stepping stone to the Supreme Lord.`, `Spend evening and morning hours deliberately remembering Hari.`],
+        [2, `The Lord in the Heart`, `Describes meditation on the four-armed Paramātmā situated in the heart and traces the mystic yogī's gradual ascent through the subtle planetary spheres versus the swift direct path of bhakti.`, `Cultivate awareness of Paramātmā guiding from within the heart.`],
+        [3, `Pure Devotional Service: The Change in Heart`, `Lists which demigods grant specific material benedictions, then concludes that whether one has no desires, all desires, or seeks liberation, one should exclusively worship the Supreme Lord through pure bhakti (SB 2.3.10).`, `Even material desires purify when brought directly to Kṛṣṇa.`],
+        [4, `The Process of Creation`, `Parīkṣit asks how the universe is created, maintained, and dissolved by the Lord's inconceivable potencies. Śukadeva offers his famous maṅgalācaraṇa prayers glorifying Kṛṣṇa's purifying power.`, `Acknowledge that no nation or person lies beyond the grace of Hari-nāma.`],
+        [5, `The Cause of All Causes`, `Narada asks Brahmā how the cosmos arose. Brahmā clarifies that he is not the supreme creator, but acts under Nārāyaṇa's direction through the three modes and mahat-tattva.`, `Work humbly as an instrument of the Lord rather than claiming proprietorship.`],
+        [6, `Puruṣa-sūkta Confirmed`, `Brahmā explains the Puruṣa-sūkta: the universe arises from the Lord's giant form, yet His spiritual abode remains three-fourths beyond material creation. Lists the Lord's plenary incarnations.`, `See all natural beauty and talent as tiny sparks of Kṛṣṇa's opulence.`],
+        [7, `Scheduled Incarnations with Specific Functions`, `Brahmā summarizes major līlā-avatāras—Varāha, Nara-Nārāyaṇa, Kapila, Dattātreya, Ṛṣabha, Hayagrīva, Matsya, Kūrma, Nṛsiṁha, Vāmana, Rāma, Kṛṣṇa, Buddha, Kalki—demonstrating His boundless mercy.`, `Study the Lord's pastimes across ages to deepen faith in His protection.`],
+        [8, `Questions by King Parīkṣit`, `Parīkṣit earnestly asks twenty-six detailed questions on soul, Supersoul, time, karma, creation, and bhakti, demonstrating the ideal mood of an attentive hearer.`, `Ask thoughtful, sincere questions to unlock scriptural realization.`],
+        [9, `Answers by Citing the Lord’s Version`, `Explains how the Lord revealed Vaikuṇṭha to Brahmā after he heard "tapa" (austerity) from the sky, shook his hands in affection, and imparted the four-verse Catuḥ-ślokī Bhāgavatam (SB 2.9.33–36).`, `Embrace spiritual austerity and study the Catuḥ-ślokī as the Bhāgavatam's seed.`],
+        [10, `Bhāgavatam Is the Answer to All Questions`, `Defines the ten Purāṇic topics (Daśa-lakṣaṇa, SB 2.10.1), explains the subtle and gross bodies through the Supreme Person, and concludes the Canto by pointing toward Āśraya-tattva.`, `Understand creation and dissolution only to appreciate the supreme shelter, Kṛṣṇa.`]
+      ],
+      3: [
+        [1, `Questions by Vidura`, `After leaving Hastināpura when Duryodhana insulted him, Vidura visits holy places and meets Uddhava at the Yamunā, inquiring tenderly about Kṛṣṇa and the Pāṇḍavas.`, `Seek out saintly association when departing toxic environments.`],
+        [2, `Remembrance of Lord Kṛṣṇa`, `Overwhelmed with separation, Uddhava recalls Kṛṣṇa's childhood, Vṛndāvana līlās, and unmatched compassion—marveling how even Pūtanā attained a mother's post.`, `Meditation on Kṛṣṇa's mercy melts fear and despair.`],
+        [3, `The Lord’s Pastimes Out of Vṛndāvana`, `Uddhava recounts Kṛṣṇa's deeds in Mathurā, Dvārakā, and Kurukṣetra, His marriage to Rukmiṇī, and His final departure to His own abode.`, `Recognize the Lord's householder pastimes as completely transcendental.`],
+        [4, `Vidura Approaches Maitreya`, `Uddhava describes the Yadus' passing and Kṛṣṇa's final instruction to stay on earth and share knowledge with Vidura, directing Vidura to Maitreya Muni in Haridvāra.`, `Honor the chain of disciplic succession when seeking deep truth.`],
+        [5, `Vidura’s Talks with Maitreya`, `Vidura asks Maitreya how to attain peace and understand creation. Maitreya praises Vidura's questions and begins describing the Lord's external energy (māyā) and the 24 elements.`, `Inquire for the welfare of all beings, not idle curiosity.`],
+        [6, `Creation of the Universal Form`, `Describes how the Supreme Lord entered the cosmic elements and activated the Virāṭ-puruṣa along with the presiding demigods of the senses.`, `Acknowledge the Lord behind every sensory and cognitive faculty.`],
+        [7, `Further Inquiries by Vidura`, `Vidura asks how the pure soul becomes entangled in māyā and experiences suffering; Maitreya emphasizes that bhakti alone dissipates this dream-like illusion.`, `Remember suffering is a product of misidentification with matter.`],
+        [8, `Manifestation of Brahmā from Garbhodakaśāyī Viṣṇu`, `Details Brahmā's birth on the lotus sprouting from Garbhodakaśāyī Viṣṇu's navel, his 100-year search for the stem's source, and his direct darśana of the Lord.`, `When baffled by life's origins, turn inward in meditation and prayer.`],
+        [9, `Brahmā’s Prayers for Creative Energy`, `Brahmā offers heartfelt prayers glorifying the Lord's accessible form and seeks strength to create without pride; the Lord blesses him and disappears.`, `Seek divine empowerment in every responsibility, free from ego.`],
+        [10, `Divisions of the Creation`, `Brahmā meditates and manifests the nine divisions of creation: mahat-tattva, false ego, senses, elements, ignorance, stationary life, animals, humans, and demigods.`, `See all living species as interconnected creations of one Supreme Father.`],
+        [11, `Calculation of Time, from the Atom`, `Explains Vedic time from the atomic paramāṇu to yugas, manvantaras, a day of Brahmā (kalpa), and Brahmā's 100-year lifespan—mere blinks in eternal time.`, `Value every human moment in the perspective of cosmic time.`],
+        [12, `Creation of the Kumāras and Others`, `Brahmā manifests the four celibate Kumāras, Lord Rudra (Śiva), the ten Prajāpatis, the Vedas, and finally divides his body into Svāyambhuva Manu and Śatarūpā.`, `Respect both renounced wisdom and responsible dharmic family life.`],
+        [13, `The Appearance of Lord Varāha`, `Svāyambhuva Manu requests a place to live; from Brahmā's nostril emerges tiny Varāha, who expands into a cosmic boar, dives into the Garbhodaka Ocean, and lifts the Earth.`, `Pray to Yajña-Varāha to lift our fallen consciousness from material mire.`],
+        [14, `Pregnancy of Diti in the Evening`, `Overcome by lust at dusk, Kaśyapa Muni and Diti conceive twin demons, though Kaśyapa blesses Diti that her grandson Prahlāda will become an incomparable devotee.`, `Maintain spiritual discipline during sacred twilight hours.`],
+        [15, `Description of the Kingdom of God`, `Describes the four Kumāras visiting Vaikuṇṭha—beyond time and fear—where gatekeepers Jaya and Vijaya stop them and receive a curse to descend thrice as demons.`, `Guard against pride or misjudgment when encountering saintly souls.`],
+        [16, `The Two Doorkeepers of Vaikuṇṭha, Jaya and Vijaya, Cursed by the Sages`, `Lord Viṣṇu personally arrives, apologizes to the Kumāras on His servants' behalf, and confirms Jaya and Vijaya's three births as Hiraṇyakaśipu/Hiraṇyākṣa, Rāvaṇa/Kumbhakarṇa, and Śiśupāla/Dantavakra.`, `Learn humility from the Supreme Lord's own respectful conduct.`],
+        [17, `Victory of Hiraṇyākṣa Over All the Directions of the Universe`, `Born as Diti's twin sons, Hiraṇyākṣa grows arrogant, conquers the universe, challenges Varuṇa, and seeks out Lord Varāha in the cosmic ocean.`, `Unchecked power without devotion inevitably breeds delusion.`],
+        [18, `The Battle Between Lord Boar and the Demon Hiraṇyākṣa`, `Lord Varāha playfully duels with Hiraṇyākṣa, endures his mystic illusions, slays him with a strike near his ear, and restores Earth upon His tusks.`, `Trust that the Lord easily neutralizes seemingly invincible evil.`],
+        [19, `The Killing of the Demon Hiraṇyākṣa`, `Concludes the battle of Varāha and Hiraṇyākṣa; Brahmā and the demigods praise the Lord, and Maitreya affirms that hearing this pastime frees one from sin.`, `Hear the Lord's heroic avatāra pastimes to strengthen courage in sādhana.`],
+        [20, `Conversation Between Maitreya and Vidura`, `Details Brahmā's further creations of demons, demigods, Gandharvas, Yakṣas, and sages before introducing Kardama Muni's lineage.`, `Understand how diverse temperaments arise from the three guṇas.`],
+        [21, `Conversation Between Manu and Kardama`, `Kardama Muni performs ten thousand years of penance on the Bindu-sarovara lake; Lord Viṣṇu promises to appear as his son, and Svāyambhuva Manu arrives offering Princess Devahūti.`, `Perform duties in gṛhastha life centered around welcoming the Lord.`],
+        [22, `The Marriage of Kardama Muni and Devahūti`, `Manu and Śatarūpā entrust Devahūti to Kardama Muni, who accepts her with the condition that after begetting children he will embrace sannyāsa.`, `Approach marriage as a spiritual partnership supporting mokṣa and bhakti.`],
+        [23, `Devahūti’s Lamentation`, `Devahūti serves Kardama selflessly for years; touched by her devotion, Kardama creates a mystic aerial mansion, grants her divine companionship, and fathers nine daughters.`, `Devoted service within family life wins spiritual reciprocation.`],
+        [24, `The Renunciation of Kardama Muni`, `Lord Viṣṇu appears as Kapiladeva, the son of Kardama and Devahūti; Kardama offers prayers, receives permission, and departs for the forest, leaving Devahūti with the Lord Himself.`, `Know when to gracefully pass responsibility to the next generation.`],
+        [25, `The Glories of Devotional Service`, `Devahūti approaches her son Lord Kapila for liberation. Kapila explains how attachment to materialists binds, while attachment to sādhus opens the door to liberation (SB 3.25.25).`, `Seek sādhu-saṅga above all else as the gateway to pure bhakti.`],
+        [26, `Fundamental Principles of Material Nature`, `Lord Kapila systematically analyzes the twenty-four elements of Sāṅkhya—prakṛti, puruṣa, mahat-tattva, ahaṅkāra, senses, and elements—to distinguish spirit from matter.`, `Use analytical discrimination (viveka) to detach from bodily identification.`],
+        [27, `Understanding Material Nature`, `Explains how the soul's illusory identification with prakṛti dissolves through knowledge, detachment, and steady devotional service to Vāsudeva.`, `Practice detachment from sense objects while fixing the mind on Kṛṣṇa.`],
+        [28, `Kapila’s Instructions on the Execution of Devotional Service`, `Describes aṣṭāṅga-yoga and progressive meditation on Lord Viṣṇu's transcendental form from His lotus feet upward to His smiling face.`, `Focus meditation on the enchanting personal form of the Lord.`],
+        [29, `Explanation of Devotional Service by Lord Kapila`, `Classifies bhakti across the three modes (tāmasic, rājasic, sāttvic) and exalts nirguṇa-bhakti—unmotivated devotion—above even liberation, warning of the swift march of Time.`, `Value seeing the Lord in all beings and serving without ulterior motive.`],
+        [30, `Description by Lord Kapila of Adverse Fruitive Activities`, `Vividly depicts the suffering of materialistic attachment in old age, death, and Yamaloka to awaken urgency for spiritual awakening.`, `Avoid complacency; use present health to cultivate God consciousness.`],
+        [31, `Symptoms of the Living Entity’s Fruitive Activities`, `Traces the painful journey of the jīva in the womb, praying to the Lord for release, only to forget upon birth under māyā's spell.`, `Remember the soul's helplessness without the Lord's constant grace.`],
+        [32, `Entanglement in Fruitive Activities`, `Contrasts the temporary heavenly rewards of karma-kāṇḍa with the eternal liberation attained by those who worship Lord Kṛṣṇa in pure bhakti.`, `Choose eternal spiritual service over fleeting celestial rewards.`],
+        [33, `Activities of Kapila`, `Deeply enlightened by Kapila's teachings, Devahūti realizes the Supreme Lord, attains perfection at Siddhapada, and Kapila departs northward; Maitreya finishes instructing Vidura.`, `Apply received wisdom immediately until realization blossoms.`]
+      ],
+      4: [
+        [1, `Genealogical Table of the Daughters of Manu`, `Traces the descendants of Svāyambhuva Manu's daughters—Ākūti, Devahūti, and Prasūti—including the appearances of Yajña, Nara-Nārāyaṇa, and Dattātreya.`, `See saintly lineages as channels for preserving divine culture.`],
+        [2, `Dakṣa Curses Lord Śiva`, `At a great sacrifice, Prajāpati Dakṣa takes offense when Lord Śiva remains seated in trance; Dakṣa publicly insults Śiva, triggering mutual curses between Nandīśvara and Bhṛgu Muni.`, `Never judge a saint's inner absorption by external social etiquette.`],
+        [3, `Talks Between Lord Śiva and Satī`, `Satī longs to attend her father Dakṣa's sacrifice despite Śiva's gentle warning that going uninvited to an inimical assembly brings humiliation.`, `Respect wise warnings regarding environments hostile to devotion.`],
+        [4, `Satī Quits Her Body`, `Seeing Dakṣa's blatant disrespect toward Lord Śiva, Satī rebukes her father, declares Śiva's glories, sits in yogic trance, and quits her body in mystic fire.`, `Defend the honor of great Vaiṣṇavas with dignity and conviction.`],
+        [5, `Frustration of the Sacrifice of Dakṣa`, `Enraged upon hearing of Satī's passing, Lord Śiva manifests Vīrabhadra, who storms Dakṣa's sacrificial arena and beheads Dakṣa.`, `Understand that offenses against exalted devotees bring swift cosmic reactions.`],
+        [6, `Brahmā Satisfies Lord Śiva`, `The defeated demigods appeal to Brahmā, who leads them to Kailāsa; pacified by Brahmā's conciliatory prayers, compassionate Lord Śiva agrees to restore the sacrifice.`, `Approach offended souls with humility and genuine contrition.`],
+        [7, `The Sacrifice Performed by Dakṣa`, `Dakṣa receives a goat's head, offers sincere apologies to Lord Śiva, and completes the sacrifice as Lord Viṣṇu personally appears to affirm unity among Himself, Brahmā, and Śiva.`, `See Viṣṇu as the unifying heart of all Vedic worship.`],
+        [8, `Dhruva Mahārāja Leaves Home for the Forest`, `Hurt by stepmother Suruci's harsh taunt, five-year-old Dhruva follows mother Sunīti's counsel to seek the Lord, meets Nārada Muni, and initiates intense austerity at Madhuvana.`, `Respond to insults not with bitterness, but with elevated spiritual resolve.`],
+        [9, `Dhruva Mahārāja Returns Home`, `Overwhelmed by Dhruva's penance, Lord Viṣṇu appears, touches His conch to Dhruva's cheek inspiring exalted prayers, grants him Dhruvaloka, and returns him to a repentant King Uttānapāda.`, `Realizing the Lord dissolves all material resentments and cravings.`],
+        [10, `Dhruva Mahārāja’s Fight with the Yakṣas`, `When a Yakṣa kills his brother Uttama, Dhruva wages fierce war on Alakāpurī until Manu counsels restraint against innocent beings.`, `Temper righteous anger with wisdom and compassion.`],
+        [11, `Svāyambhuva Manu Advises Dhruva Mahārāja to Stop Fighting`, `Manu reminds Dhruva that all beings act under the Lord's arrangement and explains the futility of vengeance.`, `See beyond immediate perpetrators to the higher hand of providence.`],
+        [12, `Dhruva Mahārāja Goes Back to Godhead`, `After ruling nobly for 36,000 years, Dhruva hands over his throne, boards a Vaikuṇṭha vimāna while stepping onto Death's head, and ensures mother Sunīti's liberation too.`, `Steady devotion conquers even death and uplifts one's entire family.`],
+        [13, `Description of the Descendants of Dhruva Mahārāja`, `Traces Dhruva's lineage down to the gentle King Aṅga and his wicked son Vena, whose cruelty drives King Aṅga to secretly renounce the palace.`, `When surrounded by unreformable corruption, preserve spiritual integrity.`],
+        [14, `The Story of King Vena`, `Vena halts Vedic sacrifices and declares himself God; brāhmaṇas warn him patiently, then slay him with mystic huṅkāra sounds when he refuses reform.`, `Power divorced from humility and dharma leads swiftly to ruin.`],
+        [15, `King Pṛthu’s Appearance and Coronation`, `To save society from anarchy, sages churn Vena's arms, manifesting Lord Viṣṇu's śaktyāveśa-avatāra Mahārāja Pṛthu and Queen Arci amidst celestial blessings.`, `Great leadership arises as an instrument of divine order and service.`],
+        [16, `Recitation of Auspicious Activities of King Pṛthu by Professional Reciters`, `Sūtas and Māgadhas praise Pṛthu's future glories—exemplifying ideal kingship, tolerance, and devotion—while Pṛthu listens humbly.`, `Accept praise merely as encouragement to serve better, without pride.`],
+        [17, `Mahārāja Pṛthu Becomes Angry at the Planet Earth`, `Finding his citizens starving, Pṛthu pursues Mother Earth (hiding as a cow) until she submits and advises him to level mountains and milk the earth lawfully.`, `Leaders must actively remove citizens' scarcity while respecting ecological harmony.`],
+        [18, `Mahārāja Pṛthu Milks the Earth Planet`, `Different classes of beings—sages, demigods, trees, rivers, and animals—milk their respective sustenances from Earth using proper calves and vessels.`, `Work cooperatively with nature's gifts through righteous stewardship.`],
+        [19, `King Pṛthu’s One Hundred Horse Sacrifices`, `Indra repeatedly steals Pṛthu's hundredth Aśvamedha horse in disguise; Lord Viṣṇu intervenes, counsels peace, and affirms that bhakti surpasses ritual rivalry.`, `Never allow spiritual practice to degenerate into egoistic competition.`],
+        [20, `Lord Viṣṇu’s Appearance in the Sacrificial Arena of Mahārāja Pṛthu`, `Pleased by Pṛthu's humility, Lord Viṣṇu appears with Indra, offers any boon, and Pṛthu asks only for ten thousand ears to hear the Lord's glories continuously.`, `Desire an insatiable appetite for hearing Kṛṣṇa-kathā above all boons.`],
+        [21, `Instructions by Mahārāja Pṛthu`, `Pṛthu addresses his citizens on their duties to honor brāhmaṇas, practice devotion to Hari, and live in mutual harmony.`, `Good governance inspires citizens toward spiritual purpose, not mere comfort.`],
+        [22, `Mahārāja Pṛthu’s Meeting with the Four Kumāras`, `The four Kumāras visit Pṛthu and teach how attachment to Lord Vāsudeva alone cuts the knot of karmic bondage (SB 4.22.39).`, `Use worldly stability to eagerly welcome and learn from pure renunciates.`],
+        [23, `Mahārāja Pṛthu’s Going Back to Godhead`, `In old age, Pṛthu retires to the forest with Queen Arci, practices severe yoga, fixes his mind on Kṛṣṇa, and ascends to Vaikuṇṭha.`, `Plan a graceful, purposeful retirement focused wholly on spiritual absorption.`],
+        [24, `Chanting the Song Sung by Lord Śiva`, `Introduces Pṛthu's descendants, the ten Pracetā brothers, who meet Lord Śiva; Śiva imparts the sacred Rudra-gīta glorifying Lord Vāsudeva.`, `Learn from Lord Śiva as the foremost Vaiṣṇava teacher of pure devotion.`],
+        [25, `The Descriptions of the Characteristics of King Purañjana`, `Nārada Muni narrates the allegory of King Purañjana and the city of nine gates to awaken King Prācīnabarhi from fruitive ritualism.`, `Recognize the body as a temporary nine-gated city; don't mistake it for home.`],
+        [26, `King Purañjana Goes to the Forest to Hunt, and His Queen Becomes Angry`, `Purañjana hunts ruthlessly in the forest of sense indulgence, neglecting his spiritual companion (the Supersoul).`, `Cruelty and restless craving cloud our awareness of the inner friend.`],
+        [27, `Attack by Caṇḍavega on the City of King Purañjana; the Character of Kālakanyā`, `Time (Caṇḍavega) and Old Age (Kālakanyā) inevitably besiege the city of nine gates, stripping Purañjana of youth and strength.`, `Prepare spiritually before time's siege overtakes bodily vigor.`],
+        [28, `Purañjana Becomes a Woman in the Next Life`, `Thinking exclusively of his queen at death, Purañjana is reborn as Vaidarbhī until the forgotten brāhmaṇa friend (Supersoul) gently awakens him.`, `Remember that final thoughts shape our next birth; cultivate Kṛṣṇa-smaraṇam.`],
+        [29, `Talks Between Nārada and King Prācīnabarhi`, `Nārada decodes every symbol of the Purañjana allegory, awakening Prācīnabarhi to abandon animalistic sacrifices and seek pure bhakti.`, `Look for the deeper spiritual meaning behind scriptural metaphors.`],
+        [30, `The Activities of the Pracetās`, `After 10,000 years chanting Rudra-gīta underwater, the Pracetās receive Lord Viṣṇu's darśana, marry Mārīṣā (mother of Dakṣa), and ask for unfailing devotee association.`, `Value sādhu-saṅga above even personal liberation.`],
+        [31, `Nārada Instructs the Pracetās`, `Nārada instructs the aged Pracetās on fixing consciousness on the Lord, concluding Vidura and Maitreya's narration of Canto Four.`, `Conclude life's work by sitting peacefully in constant remembrance of Hari.`]
+      ],
+      5: [
+        [1, `The Activities of Mahārāja Priyavrata`, `Brahmā persuades contemplative Priyavrata to marry and rule; Priyavrata drives his luminous chariot around Mount Meru creating the seven oceans and islands.`, `Discharge worldly leadership responsibly when duty calls, without inner attachment.`],
+        [2, `The Activities of Mahārāja Āgnīdhra`, `Traces Priyavrata's son Āgnīdhra, who rules Jambūdvīpa and begets nine sons, including Nābhi.`, `Recognize how even pious rulers must guard against subtle sensory infatuation.`],
+        [3, `Ṛṣabhadeva’s Appearance in the Womb of Merudevī, the Wife of King Nābhi`, `King Nābhi performs sacrifices pleasing Lord Viṣṇu, who agrees to appear personally as his son to demonstrate paramahaṁsa conduct.`, `Approach worship with humility; the Lord reciprocates beyond expectation.`],
+        [4, `The Characteristics of Ṛṣabhadeva, the Supreme Personality of Godhead`, `Lord Ṛṣabhadeva grows into an ideal ruler of Ajanābha-varṣa (later Bhārata-varṣa), demonstrating exemplary dharma despite being the Supreme Lord.`, `Set the highest moral example even when spiritually advanced.`],
+        [5, `Lord Ṛṣabhadeva’s Teachings to His Sons`, `Ṛṣabhadeva delivers His seminal discourse on the true purpose of human life (SB 5.5.1), warnings on material bondage, and complete renunciation.`, `Use human birth for divine austerity and serving Vaiṣṇavas, not sensory excess.`],
+        [6, `The Activities of Lord Ṛṣabhadeva`, `Leaving the kingdom to Bharata, Lord Ṛṣabhadeva wanders in supreme avadhūta detachment, endures public ridicule silently, and departs amidst forest fire.`, `True renunciation stays unshaken by praise or insult.`],
+        [7, `The Activities of King Bharata`, `Emperor Bharata (for whom Bhārata-varṣa is named) rules devoutly, retires to Pulahāśrama for bhakti, yet rescues an orphan fawn.`, `Compassion is noble, yet beware of subtle emotional attachment replacing sādhana.`],
+        [8, `A Description of the Character of Bharata Mahārāja`, `Over-attached to the fawn, Bharata thinks of it at death and takes birth as a deer, painfully repenting his lapse while awaiting his next human birth.`, `Keep Kṛṣṇa—not worldly affections—at the center of our final thoughts.`],
+        [9, `The Supreme Character of Jaḍa Bharata`, `Reborn as a self-realized brāhmaṇa acting dull and silent ("Jaḍa Bharata") to avoid distraction, he survives mistreatment and is saved by Goddess Kālī from human sacrifice.`, `Guard inner absorption even when misunderstood by the world.`],
+        [10, `The Discussion Between Jaḍa Bharata and Mahārāja Rahūgaṇa`, `Pressed to carry King Rahūgaṇa's palanquin, Jaḍa Bharata replies with piercing philosophical clarity, shattering the king's pride.`, `Speak fearless truth when ego mistakes external rank for real worth.`],
+        [11, `Jaḍa Bharata Instructs King Rahūgaṇa`, `Jaḍa Bharata explains the restless mind as the root of bondage and liberation, urging Rahūgaṇa to seek true spiritual vision.`, `Master the mind through steady discrimination and devotion.`],
+        [12, `Conversation Between Mahārāja Rahūgaṇa and Jaḍa Bharata`, `Concludes with the analogy of the palanquin-bearers and earth: dust of pure devotees' feet alone awakens real wisdom (rahūgaṇaitat tapasā na yāti).`, `Seek the humble dust of pure devotees' feet over dry scholarship.`],
+        [13, `Further Talks Between King Rahūgaṇa and Jaḍa Bharata`, `Jaḍa Bharata describes the perilous "forest of material enjoyment" (bhavāṭavī) beset by six senses, robbers, and time until one takes shelter of Hari.`, `Recognize worldly traps clearly and step out onto the path of bhakti.`],
+        [14, `The Material World as the Great Forest of Enjoyment`, `Śukadeva Gosvāmī decodes every metaphor of the forest of material existence, illuminating how souls wander birth after birth.`, `Cultivate detachment by seeing material anxieties for what they truly are.`],
+        [15, `The Glories of the Descendants of King Priyavrata`, `Summarizes Bharata's descendants, including King Gaya, an exalted devotee whose saintly rule purified the earth.`, `Honor noble lineages dedicated to yajña and public welfare.`],
+        [16, `A Description of Jambūdvīpa`, `Begins Vedic cosmography (Sthānam): describes Bhū-maṇḍala, Mount Meru, Ilāvṛta-varṣa, and the nine divisions of Jambūdvīpa.`, `Marvel at the vast cosmic architecture arranged by the Supreme Lord.`],
+        [17, `The Descent of the River Ganges`, `Narrates how the Gaṅgā descends from Lord Viṣṇu's lotus toe onto Meru and divides into four branches, sanctified by Lord Śiva's worship of Saṅkarṣaṇa.`, `Revere sacred rivers as purifying extensions of the Lord's mercy.`],
+        [18, `The Prayers Offered to the Lord by the Residents of Jambūdvīpa`, `Records beautiful prayers offered in each varṣa—including Prahlāda worshipping Nṛsiṁha and Hanumān worshipping Lord Rāmacandra.`, `Draw inspiration from the distinct bhakti moods across the varṣas.`],
+        [19, `A Description of the Island of Jambūdvīpa`, `Hanumān glorifies Rāmacandra; Nārada worships Nara-Nārāyaṇa in Bhārata-varṣa, acclaimed by demigods as the sole karma-bhūmi where liberation is easily won.`, `Cherish birth in Bhārata-varṣa and opportunities for bhakti everywhere.`],
+        [20, `Studying the Structure of the Universe`, `Maps the six outer ring-shaped islands and oceans surrounding Jambūdvīpa up to Lokāloka Mountain and Aloka-varṣa.`, `Expand vision beyond small personal horizons to cosmic immensity.`],
+        [21, `The Movements of the Sun`, `Describes the sun god Sūrya's one-wheeled chariot orbiting Mānasottara Mountain, regulating seasons, day, night, and solstices.`, `See cosmic order and time's precision as manifestations of Kṛṣṇa's law.`],
+        [22, `The Orbits of the Planets`, `Maps the orbits of the Moon, Nakṣatras, Venus, Mercury, Mars, Jupiter, Saturn, and the Saptarṣis beneath Dhruvaloka.`, `Recognize the harmony of celestial spheres under Kṛṣṇa's supervision.`],
+        [23, `The Śiśumāra Planetary Systems`, `Visualizes the stars and Dhruvaloka as the cosmic dolphin-like form of Lord Viṣṇu (Śiśumāra-cakra) for contemplative meditation.`, `Contemplate the starry night sky as a reminder of Lord Viṣṇu.`],
+        [24, `The Subterranean Heavenly Planets`, `Describes Rāhu's position and the seven subterranean realms (Atala to Pātāla), culminating in Bali Mahārāja's Sutala guarded by Vāmanadeva.`, `Understand that opulent sense enjoyment without bhakti remains binding.`],
+        [25, `The Glories of Lord Ananta`, `Celebrates Lord Ananta Śeṣa supporting the universes upon His hoods like mustard seeds, continuously glorified by Nārada.`, `Rest in the limitless strength of Ananta Śeṣa sustaining creation.`],
+        [26, `A Description of the Hellish Planets`, `Details the twenty-eight Naraka realms governed by Yamarāja for specific sinful acts, concluding that remembering Viṣṇu alone nullifies all fear.`, `Take moral accountability seriously while seeking refuge in Hari-nāma.`]
+      ],
+      6: [
+        [1, `The History of the Life of Ajāmila`, `Parīkṣit asks how souls avoid hell; Śukadeva introduces fallen brāhmaṇa Ajāmila who, calling his son "Nārāyaṇa" at death, summons Viṣṇudūtas to debate the Yamadūtas.`, `Never underestimate even a single sincere utterance of the Lord's holy name.`],
+        [2, `Ajāmila Delivered by the Viṣṇudūtas`, `The Viṣṇudūtas explain that chanting Nārāyaṇa's name—even helplessly—burns all sinful reactions; spared from death, Ajāmila repents, goes to Haridvāra, and attains Vaikuṇṭha.`, `When granted a second chance, dedicate remaining life wholly to bhakti.`],
+        [3, `Yamarāja Instructs His Messengers`, `Astonished Yamadūtas question Yamarāja, who declares Nārāyaṇa the supreme master and Bhāgavata-dharma—chanting the holy name—the highest duty (SB 6.3.22).`, `Align daily life with Bhāgavata-dharma rather than mere social convention.`],
+        [4, `The Haṁsa-guhya Prayers Offered to the Lord by Prajāpati Dakṣa`, `Reborn as Prācetasa Dakṣa, Dakṣa offers the sublime Haṁsa-guhya prayers to Lord Hari for progeny, receiving the Lord's direct benediction.`, `Begin major undertakings with sincere prayer and surrender.`],
+        [5, `Nārada Muni Cursed by Prajāpati Dakṣa`, `Nārada inspires Dakṣa's 11,000 sons (Haryaśvas and Śabalāśvas) to renounce worldly entanglement for liberation; furious Dakṣa curses Nārada never to stay in one place.`, `Bear unjust criticism peacefully when guiding souls toward truth.`],
+        [6, `The Progeny of the Daughters of Dakṣa`, `Traces the lineage of Dakṣa's sixty daughters, populating the universe with demigods, sages, serpents, birds, and human ancestors.`, `Understand the interconnected ancestry of cosmic beings.`],
+        [7, `Indra Offends His Spiritual Master, Bṛhaspati`, `Puffed up by opulence, Indra fails to rise for guru Bṛhaspati, who disappears; defeated by demons, Indra humbles himself and accepts Viśvarūpa as priest.`, `Treat spiritual mentors with constant gratitude and respect.`],
+        [8, `The Nārāyaṇa-kavaca Shield`, `Viśvarūpa teaches Indra the sacred Nārāyaṇa-kavaca mantra-armor invoking Lord Hari's names and forms for protection in every direction and circumstance.`, `Remember the Lord's names as the ultimate spiritual armor.`],
+        [9, `Appearance of the Demon Vṛtrāsura`, `Indra beheads Viśvarūpa upon suspecting sympathy for demons; Tvaṣṭā performs a sacrifice producing mighty Vṛtrāsura, while Lord Viṣṇu instructs the frightened demigods to seek Dadhīci's bones.`, `Offenses against brāhmaṇas invite severe turmoil that only grace resolves.`],
+        [10, `The Battle Between Indra and Vṛtrāsura`, `Sage Dadhīci cheerfully sacrifices his body for the universal good; armed with the thunderbolt Vajra, Indra clashes with Vṛtrāsura.`, `Practice selflessness like Dadhīci when service requires personal sacrifice.`],
+        [11, `The Transcendental Qualities of Vṛtrāsura`, `Vṛtrāsura rebukes Indra's cowardice and speaks his four immortal prayers of pure bhakti (SB 6.11.24–27), longing solely to be the servant of the Lord's servants.`, `Look beyond external roles—even a "demon" form can house an exalted devotee.`],
+        [12, `Vṛtrāsura’s Glorious Death`, `Urging Indra to strike with Viṣṇu's thunderbolt, Vṛtrāsura meditates calmly on the Lord, attains Vaikuṇṭha, and leaves Indra astonished.`, `Face adversity and even death with unwavering absorption in Hari.`],
+        [13, `King Indra Afflicted by Sinful Reaction`, `Slaying brāhmaṇa Vṛtrāsura brings brahma-hatyā sin upon Indra, who hides in a lotus stem at Mānasarovara until freed by Aśvamedha sacrifice to Viṣṇu.`, `Even celestial victories carry karmic weight unless cleansed by devotion.`],
+        [14, `King Citraketu’s Lamentation`, `Explains Vṛtrāsura's past life as King Citraketu, who prayed for a son from Aṅgirā Ṛṣi only to see his infant Harṣaśoka poisoned by jealous co-wives.`, `Beware of demanding material boons against divine timing.`],
+        [15, `The Saints Nārada and Aṅgirā Instruct Citraketu`, `Aṅgirā and Nārada comfort grieving Citraketu with spiritual wisdom on the eternal soul and initiate him into the Saṅkarṣaṇa mantra.`, `Turn to authentic scripture and sages during profound grief.`],
+        [16, `King Citraketu Meets the Supreme Lord`, `Citraketu revives his son's corpse long enough to hear the soul's detached truth, realizes Lord Ananta Saṅkarṣaṇa directly, and rejoices in devotion.`, `Recognize worldly ties as fleeting encounters along an eternal journey.`],
+        [17, `Mother Pārvatī Curses Citraketu`, `Traveling in his mystic airplane, Citraketu smiles at Lord Śiva embracing Pārvatī in assembly; Pārvatī curses him to be born as demon Vṛtrāsura, which he accepts graciously.`, `Accept unexpected setbacks humbly without retaliating against superiors.`],
+        [18, `Diti Vows to Kill King Indra`, `Traces the lineage of Aditi and Diti; resentful Diti undergoes the Puṁsavana vow to birth a son who will slay Indra, but Indra tricks her and divides the embryo into 49 Maruts.`, `Spiritual vows undertaken with hatred cannot yield pure fruit.`],
+        [19, `Performing the Puṁsavana Ritualistic Ceremony`, `Concludes Canto Six by transforming the Puṁsavana vow into a pure Vaiṣṇava observance dedicated to Lakṣmī-Nārāyaṇa for domestic harmony and devotion.`, `Sanctify family milestones by centering them on Lakṣmī-Nārāyaṇa.`]
+      ],
+      7: [
+        [1, `The Supreme Lord Is Equal to Everyone`, `Parīkṣit asks why the impartial Lord favored Indra over demons; Nārada clarifies that the Lord treats everyone equally according to devotion, noting how even hatred fixed on Kṛṣṇa purified Śiśupāla.`, `Engage intense emotions toward Kṛṣṇa rather than letting them scatter in matter.`],
+        [2, `Hiraṇyakaśipu, King of the Demons`, `Enraged by Varāha slaying his brother Hiraṇyākṣa, Hiraṇyakaśipu consoles his grieving mother and nephews with brilliant philosophy on the eternal soul despite his demonic ambition.`, `See how intellectual philosophy without devotion still leaves pride intact.`],
+        [3, `Hiraṇyakaśipu’s Plan to Become Immortal`, `Hiraṇyakaśipu performs grueling austerity until Brahmā grants his intricate conditional boons of near-immortality.`, `Material ambition tries to outsmart death, yet cannot escape the Supreme Lord.`],
+        [4, `Hiraṇyakaśipu Terrorizes the Universe`, `Intoxicated by power, Hiraṇyakaśipu usurps heaven, yet his five-year-old son Prahlāda exhibits saintly detachment and absorption in Kṛṣṇa.`, `True devotion blossoms independently of family environment.`],
+        [5, `Prahlāda Mahārāja, the Saintly Son of Hiraṇyakaśipu`, `Tested by demonic teachers Ṣaṇḍa and Amarka, Prahlāda proclaims the nine processes of bhakti (SB 7.5.23–24), provoking his father's murderous rage.`, `Stand gently yet firmly by spiritual principles under pressure.`],
+        [6, `Prahlāda Instructs His Demoniac Schoolmates`, `During recess, Prahlāda teaches his classmates to practice Bhāgavata-dharma in childhood (SB 7.6.1), warning how fleeting human youth is.`, `Cultivate spiritual habits early rather than postponing devotion to old age.`],
+        [7, `What Prahlāda Learned in the Womb`, `Prahlāda reveals he received pure bhakti-yoga from Nārada Muni while in his mother Kayādhu's womb, outlining the distinction between soul and body.`, `Never underestimate the spiritual impressions planted before and during early life.`],
+        [8, `Lord Nṛsiṁhadeva Slays the King of the Demons`, `Challenging Prahlāda's faith, Hiraṇyakaśipu strikes a palace pillar; Lord Nṛsiṁhadeva bursts forth in half-man, half-lion form and slays him on His lap at dusk, honoring every boon of Brahmā.`, `Have unshakeable faith that Kṛṣṇa is omnipresent and protects His devotees.`],
+        [9, `Prahlāda Pacifies Lord Nṛsiṁhadeva with Prayers`, `Fearful demigods send young Prahlāda forward; unafraid, Prahlāda offers fifty-five exquisite prayers proclaiming that bhakti surpasses high birth or scholarship.`, `Approach the Lord with childlike trust and selfless devotion.`],
+        [10, `Prahlāda, the Best Among Exalted Devotees`, `Declining material boons, Prahlāda prays for the liberation of all conditioned souls, performs his father's rites, and introduces the Tripura-dahana story of Lord Śiva.`, `Pray for the spiritual upliftment of others, including one's adversaries.`],
+        [11, `The Perfect Society: Four Social Classes`, `Nārada explains the universal duties of human beings (30 qualities like truthfulness, mercy, austerity) and the characteristics of brāhmaṇas, kṣatriyas, vaiśyas, and śūdras.`, `Cultivate universal moral virtues alongside your occupational service.`],
+        [12, `The Perfect Student Life`, `Details the rules of brahmacarya (celibate student life) and vānaprastha (retired contemplation) to gradually loosen bodily attachment.`, `Practice self-restraint and reverence toward teachers in every stage of study.`],
+        [13, `The Behavior of a Perfect Person`, `Describes sannyāsa renunciation and Nārada's meeting with an ecstatic, carefree Ajagara-vrata (python-like) avadhūta saint contented by providence.`, `Practice contentment with whatever Kṛṣṇa sends without anxious striving.`],
+        [14, `Ideal Family Life`, `Guides householders (gṛhasthas) to earn honestly, host guests, worship Viṣṇu, and practice charity so family life becomes a sanctuary of bhakti.`, `Transform the home into a temple through hospitality and regular kīrtana.`],
+        [15, `Instructions for Civilized Human Beings`, `Summarizes sacrifices, charity, and overcoming the three modes, revealing that Nārada himself was once a Gandharva named Upabarhaṇa.`, `Integrate karma, jñāna, and yoga cleanly under the supremacy of bhakti.`]
+      ],
+      8: [
+        [1, `The Manus, Administrators of the Universe`, `Introduces Manvantara: Svāyambhuva, Svārociṣa, Uttama, and Tāmasa Manus, quoting Svāyambhuva Manu's meditation on the all-pervading Lord (cf. Īśopaniṣad 1).`, `See everything in the world as belonging to the Lord and take only your allotted share.`],
+        [2, `The Elephant Gajendra’s Crisis`, `In Trikūṭa mountain lake, elephant-king Gajendra is dragged underwater by a mighty crocodile for a thousand years, exhausting all pride and physical strength.`, `When human effort fails completely, turn inward in pure surrender.`],
+        [3, `Gajendra’s Prayers of Surrender`, `Remembering prayers from his past life as King Indradyumna, Gajendra offers a lotus and cries out in unalloyed surrender (SB 8.3.1–2); Viṣṇu rushes on Garuḍa and severs the crocodile's jaws.`, `Call upon the Lord sincerely in distress; He responds swifter than thought.`],
+        [4, `Gajendra Returns to the Spiritual World`, `Reveals the crocodile's past as Gandharva Hūhū and Gajendra's past as King Indradyumna cursed by Agastya Muni; both attain liberation.`, `Even seeming curses become disguised blessings when they lead to Kṛṣṇa.`],
+        [5, `The Demigods Appeal to the Lord for Protection`, `Describes the fifth and sixth Manus; stripped of strength by Durvāsā's curse, Indra and the demigods join Brahmā on the Milk Ocean shore to offer the Ajita prayers.`, `Seek divine direction collectively when overwhelmed by adversity.`],
+        [6, `The Demigods and Demons Declare a Truce`, `Lord Ajita advises the demigods to form a temporary truce with the demons to churn the Milk Ocean using Mandara Mountain and Vāsuki serpent.`, `Work strategically with patience when divine plans require long preparation.`],
+        [7, `Lord Śiva Saves the Universe by Drinking Poison`, `Before nectar emerges, deadly halāhala poison threatens all worlds; compassionate Lord Śiva drinks it, holding it in his throat as Nīlakaṇṭha.`, `Be willing to absorb hardship to protect the wider community.`],
+        [8, `The Churning of the Milk Ocean`, `Emergence of Kāmadhenu, Uccaiḥśravā, Airāvata, Kaustubha, Pārijāta, Goddess Lakṣmī (who chooses Viṣṇu), Dhanvantari with amṛta, and the Lord's enchanting Mohinī-mūrti.`, `Stay faithful to the goal even when intermediate treasures distract others.`],
+        [9, `The Enchantment of Mohinī-Mūrti`, `Both demons and demigods submit to Mohinī-mūrti's distribution of nectar; she artfully gives immortality only to the demigods.`, `Beware how lust and greed blind intelligence to the Lord's arrangement.`],
+        [10, `The Battle Between the Demigods and the Demons`, `Realizing they were deceived, Bali Mahārāja and the demons wage fierce war against Indra's forces.`, `Recognize that envy-driven conflict can never secure divine favor.`],
+        [11, `The Demigods Conquer the Demons`, `Indra slays Bali with his thunderbolt until Śukrācārya revives Bali via the sañjīvanī mantra; Nārada halts the slaughter.`, `Acknowledge cycles of victory and defeat as temporary plays of providence.`],
+        [12, `The Bewilderment of Lord Śiva by Mohinī-Mūrti`, `Curious to behold Mohinī-mūrti, Lord Śiva visits Viṣṇu, experiences His bewildering māyā potency directly, and awakens in deep reverence for the Lord's supremacy.`, `Never test or underestimate the Lord's illusory potency out of curiosity.`],
+        [13, `Description of Future Manus`, `Lists the eighth through fourteenth Manvantaras (from Sāvarṇi Manu onward), along with their Indras, sages, and avatāras.`, `Appreciate the vast continuity of cosmic administration across future ages.`],
+        [14, `The System of Universal Management`, `Explains the duties of the six officials in every Manvantara and how the Lord personally intervenes when cosmic order falters.`, `Fulfill your assigned role conscientiously within the Lord's grand order.`],
+        [15, `Bali Mahārāja Conquers the Heavenly Planets`, `Empowered by the Viśvajit sacrifice performed by Bhṛgu brāhmaṇas, Bali Mahārāja conquers heaven, forcing Indra into exile.`, `Use power justly; even demigods face displacement when fortune turns.`],
+        [16, `Executing the Payo-vrata Process of Worship`, `Grieving mother Aditi learns the twelve-day Payo-vrata observance from Kaśyapa Muni to please Lord Viṣṇu for her sons' restoration.`, `Channel parental concern into sincere devotional vows rather than despair.`],
+        [17, `The Supreme Lord Agrees to Become Aditi’s Son`, `Pleased by Aditi's Payo-vrata, Lord Viṣṇu promises to appear as her son to reclaim Indra's kingdom without unnecessarily harming Bali, Prahlāda's grandson.`, `Trust the Lord to protect all devotees harmoniously without unfairness.`],
+        [18, `Lord Vāmanadeva, the Dwarf Incarnation`, `Lord Vāmana appears to Aditi and Kaśyapa, accepts sacred brāhmaṇa initiation, and walks radiantly into Bali Mahārāja's Aśvamedha arena on the Narmadā.`, `See humility and smallness as vehicles of supreme spiritual potency.`],
+        [19, `Lord Vāmanadeva Begs Charity from Bali Mahārāja`, `Honored by Bali, Vāmanadeva asks simply for three paces of land; Śukrācārya recognizes Viṣṇu and warns Bali not to give, yet Bali refuses to break his word.`, `Keep integrity and generosity toward the Lord above calculating self-interest.`],
+        [20, `Bali Mahārāja Surrenders the Universe`, `Defying Śukrācārya's curse, Bali pours water in charity; Vāmana expands into Trivikrama, covering earth and heaven in two steps.`, `When offering to God, hold nothing back in half-hearted calculation.`],
+        [21, `Bali Mahārāja Arrested by the Lord`, `With nowhere left for the third step, Bali is bound in Varuṇa's ropes for "failing" his promise, while Demigods and Prahlāda witness.`, `Accept apparent humiliation calmly when tested by the Supreme Lord.`],
+        [22, `Bali Mahārāja Surrenders His Life`, `Bali offers his own head for Vāmanadeva's third step; Prahlāda praises his grandson's total surrender, and the Lord blesses Bali with Sutala and His personal guardianship.`, `True surrender turns defeat into the supreme reward of Kṛṣṇa's personal presence.`],
+        [23, `The Demigods Regain the Heavenly Planets`, `Vāmanadeva restores heaven to Indra, receives Brahmā's gratitude, and departs for Sutala to guard Bali's gate.`, `See that the Lord's mercy elevates even those who seemingly lost everything.`],
+        [24, `Matsya, the Lord’s Fish Incarnation`, `Concludes Canto Eight with King Satyavrata finding a tiny golden fish that expands to oceanic proportions, towing the boat of sages and Vedas safely through the deluge.`, `Hold fast to the Lord's ship of scripture during storms of cosmic change.`]
+      ],
+      9: [
+        [1, `King Sudyumna Becomes a Woman`, `Begins Īśānukathā with Vaivasvata Manu's sons; Prince Sudyumna enters Lord Śiva's enchanted forest, transforms into Ilā, and mothers Purūravā.`, `Respect sacred boundaries and learn humility from unforeseen turns of fate.`],
+        [2, `The Dynasties of the Sons of Manu`, `Chronicles Manu's other sons—Pṛṣadhra, Kavi, Karūṣa, Dhrṣṭa, Nṛga, Nariṣyanta, Diṣṭa, Nābhāga (who generously yields wealth to Śiva)—preserving Vedic integrity.`, `Practice honesty and generosity in every ancestral duty.`],
+        [3, `The Marriage of Sukanyā and Cyavana Muni`, `Young Sukanyā faithfully serves aged Cyavana Muni; Aśvinī-kumāras restore his youth, followed by Revatī's marriage to Balarāma via Brahmā's timescale.`, `Loyalty and service transform seemingly unequal circumstances into blessings.`],
+        [4, `Ambariṣa Mahārāja Offended by Durvāsā Muni`, `Traces Ikṣvāku's line to Saint-King Ambariṣa, who engages every sense in Kṛṣṇa's service; insulted Durvāsā creates a Kṛtyā demon, only to be chased worldwide by Viṣṇu's Sudarśana Cakra, where the Lord declares Himself controlled by His devotees (SB 9.4.63).`, `Engage every sense in Kṛṣṇa's service and never offend gentle devotees.`],
+        [5, `Durvāsā Muni’s Life Spared`, `Durvāsā falls at Ambariṣa's feet; compassionate Ambariṣa prays to Sudarśana to spare the sage, feeds Durvāsā after waiting a whole year, and attains perfection.`, `Answer hostility with heartfelt forgiveness and patient service.`],
+        [6, `The Downfall of Saubhari Muni`, `Recounts Māndhātā's glories and sage Saubhari falling from austerity out of pride until he eventually repents and regains liberation.`, `Avoid pride in austerity and guard association carefully.`],
+        [7, `The Descendants of King Māndhātā`, `Follows Triśaṅku and truth-loving King Hariścandra, whose unshakeable honesty endures extreme testing by Viśvāmitra.`, `Uphold truthfulness even when it demands immense personal cost.`],
+        [8, `The Sons of Sagara Meet Lord Kapiladeva`, `King Sagara's 60,000 arrogant sons insult meditating Kapiladeva and are reduced to ashes, while grandson Aṁśumān wins Kapila's favor politely.`, `Approach great sages with gentleness, never arrogance.`],
+        [9, `The Dynasty of Aṁśumān`, `Bhagīratha performs fierce penance to bring the Ganges to liberate his ancestors, followed by Saudāsa (Kalmāṣapāda) and Khaṭvāṅga achieving perfection in a single muhūrta.`, `Even a brief remaining moment of life suffices for complete surrender to Kṛṣṇa.`],
+        [10, `The Pastimes of the Supreme Lord Rāmacandra`, `Narrates Lord Rāmacandra's appearance, bridge-building to Laṅkā, slaying of Rāvaṇa, and rescue of Mother Sītā.`, `Emulate Lord Rāma's unwavering adherence to dharma and compassion.`],
+        [11, `Lord Rāmacandra Rules the World`, `Describes Rāma-rājya's golden reign, Sītā's forest exile, Lava and Kuśa, and Lord Rāmacandra's return to Ayodhyā's eternal spiritual realm.`, `Remember that ideal leadership rests on self-sacrifice for dharma.`],
+        [12, `The Dynasty of Kuśa`, `Lists Lord Rāma's royal descendants down to Bṛhadbala, slain by Abhimanyu at Kurukṣetra, completing the Solar Dynasty.`, `See how even glorious solar dynasties pass into history.`],
+        [13, `The Dynasty of Mahārāja Nimi`, `Recounts King Nimi's bodiless existence as Videha and the lineage of Mithilā's philosopher-kings culminating in King Janaka.`, `Keep inner consciousness free from bodily ego even while ruling.`],
+        [14, `King Purūravā Enchanted by Urvaśī`, `Begins the Lunar Dynasty (Candra-vaṁśa): Soma, Budha, and King Purūravā's tragic infatuation with celestial Urvaśī until awakened by Vedic fire worship.`, `Recognize the futility of chasing fleeting romantic illusions.`],
+        [15, `Paraśurāma, the Lord’s Warrior Incarnation`, `Narrates Viśvāmitra's birth, Reṇukā and Jamadagni, and Lord Paraśurāma's appearance to chastise corrupt, arrogant kṣatriyas.`, `Power must remain accountable to spiritual dharma.`],
+        [16, `Lord Paraśurāma Destroys the World’s Ruling Class`, `Paraśurāma avenges his father Jamadagni twenty-one times, establishes order, and retires to Mahendragiri; explains Viśvāmitra's adoption of Śunaḥśepha.`, `Channel righteous strength solely to restore moral balance, then retire peacefully.`],
+        [17, `The Dynasties of the Sons of Purūravā`, `Traces Āyu's descendants, including Dhanvantari, Divodāsa, and the pious King Alarka.`, `Honor diverse contributions—healing, statecraft, and wisdom—within dharmic lineages.`],
+        [18, `King Yayāti Regains His Youth`, `Yayāti marries Devayānī and Śarmiṣṭhā; cursed with premature old age by Śukrācārya, he borrows youth from his youngest son Pūru for a thousand years.`, `Respect filial devotion while questioning endless sensual thirst.`],
+        [19, `King Yayāti Achieves Liberation`, `Realizing lust is never quenched by indulgence ("like pouring ghee on fire"), Yayāti returns youth to Pūru, narrates the he-goat allegory to Devayānī, and attains liberation.`, `Understand that renunciation—not indulgence—brings lasting peace.`],
+        [20, `The Dynasty of Pūru`, `Narrates Pūru's line, King Duṣyanta's marriage to Śakuntalā, and their mighty son Emperor Bharata (Dauṣyanti).`, `Honor promises given in quiet integrity as in public court.`],
+        [21, `The Dynasty of Bharata`, `Highlights supremely compassionate King Rantideva, who fasted for 48 days and happily gave away his final morsels of food and water to hungry guests and dogs.`, `Serve the Lord within every distressed being with spontaneous compassion.`],
+        [22, `The Descendants of Ajamīḍha`, `Traces the Pāñcāla and Kuru branches of Bharata's line down to Bhīṣma, Pāṇḍavas, and Parīkṣit's son Janamejaya.`, `Appreciate the vast historical tapestry culminating in the Pāṇḍavas.`],
+        [23, `The Dynasties of the Sons of Yayāti`, `Chronicles Anu, Druhyu, Turvasu, and Yadu's lines up to King Śaśabindu, Māndhātā's ancestors, and Jyāmagha.`, `See how varied royal houses converge toward Yadu's sacred line.`],
+        [24, `Kṛṣṇa, the Supreme Personality of Godhead`, `Traces the Yadu dynasty through Haihaya, Vidarbha, Vṛṣṇi, Śūra, and Vasudeva—culminating in a sweeping joyful preview of Lord Śrī Kṛṣṇa's appearance.`, `Prepare the heart in eager anticipation as Canto Ten opens.`]
+      ],
+      10: [
+        [1, `The Advent of Lord Kṛṣṇa: Introduction`, `Overburdened Earth appeals to Brahmā; Viṣṇu promises to descend as Devakī's eighth son. Kaṁsa hears the celestial prophecy at Devakī's wedding and imprisons her with Vasudeva.`, `Hear Kṛṣṇa's advent as the supreme medicine for worldly distress.`],
+        [2, `Prayers by the Demigods for Lord Kṛṣṇa in the Womb`, `Kṛṣṇa enters Devakī's womb via Vasudeva's heart; Brahmā and the demigods offer the Garbha-stuti prayers glorifying Kṛṣṇa as the Absolute Truth.`, `Remember that sincere devotees remain safe under Kṛṣṇa's shelter anywhere.`],
+        [3, `The Birth of Lord Kṛṣṇa`, `At auspicious midnight in Mathurā prison, Kṛṣṇa appears in four-armed Viṣṇu form before becoming a charming infant; Vasudeva carries Him across the Yamunā to Gokula.`, `Celebrate Janmāṣṭamī by welcoming Kṛṣṇa into a purified heart.`],
+        [4, `The Atrocities of King Kaṁsa`, `Yogamāyā slips from Kaṁsa's hands warning him that his slayer lives elsewhere; Kaṁsa releases Vasudeva and Devakī temporarily yet plots to kill all infants.`, `Tyranny trembles before the unseen hand of divine providence.`],
+        [5, `The Meeting of Nanda Mahārāja and Vasudeva`, `Nanda Mahārāja celebrates Kṛṣṇa's birth festival lavishly in Gokula, travels to Mathurā to pay taxes, and meets Vasudeva, who urges him home quickly.`, `Share auspicious spiritual joy generously with the entire community.`],
+        [6, `The Killing of the Demon Pūtanā`, `Child-killer Pūtanā smears poison on her breasts; baby Kṛṣṇa closes His eyes, drinks her life air, and awards her the position of a nurse in the spiritual sky.`, `Marvel at Kṛṣṇa's causeless mercy—accepting even flawed service with love.`],
+        [7, `The Killing of the Demon Tṛṇāvarta`, `Kṛṣṇa kicks apart the cart-demon Śakaṭāsura during His turning-over festival and strangles whirlwind-demon Tṛṇāvarta high in the sky, revealing cosmic worlds in His mouth to Yaśodā.`, `Trust Kṛṣṇa to topple heavy karmic carts and whirlwinds of anxiety.`],
+        [8, `Lord Kṛṣṇa Shows the Universal Form Within His Mouth`, `Garga Muni performs secret name-giving (Kṛṣṇa and Balarāma) in the cowshed; Kṛṣṇa and Balarāma perform endearing toddler pranks and show the entire cosmos inside Kṛṣṇa's clay-eating mouth.`, `Balance awe at Kṛṣṇa's divinity with tender loving service.`],
+        [9, `Mother Yaśodā Binds Lord Kṛṣṇa`, `Catching Kṛṣṇa breaking butter pots, Mother Yaśodā tries binding Him with ropes always two fingers short until Kṛṣṇa out of compassion agrees to be tied by her love (SB 10.9.14).`, `Know that love and dedicated effort (kṛpā + pariśrama) capture the Infinite.`],
+        [10, `The Deliverance of the Nalakūvara and Maṇigrīva Trees`, `Crawling between twin Arjuna trees while tied to the grinding mortar, baby Kṛṣṇa uproots them to liberate Kubera's cursed sons Nalakūvara and Maṇigrīva.`, `Pride in wealth falls low; even a curse from a saint becomes a ladder to Kṛṣṇa.`],
+        [11, `The Childhood Pastimes of Kṛṣṇa`, `Kṛṣṇa trades grains for fruit with a fruit-vendor, moves with Nanda to Vṛndāvana forest, and slays Vatsāsura (calf-demon) and Bakāsura (crane-demon).`, `Offer whatever modest skill or goods you hold directly to Kṛṣṇa.`],
+        [12, `The Killing of the Demon Aghāsura`, `Cowherd boys enter python-demon Aghāsura's open jaws thinking it a mountain cave; Kṛṣṇa expands inside, rescues everyone, and awards Aghāsura liberation.`, `Innocence protected by Kṛṣṇa walks safely through deadly traps.`],
+        [13, `The Stealing of the Boys and Calves by Brahmā`, `To test Kṛṣṇa's potency, Brahmā steals the cowherd boys and calves; Kṛṣṇa expands into exact replicas for an entire year before revealing every boy as four-armed Nārāyaṇa.`, `Never doubt Kṛṣṇa's sweetness even when veiled in ordinary village form.`],
+        [14, `Brahmā’s Prayers to Lord Kṛṣṇa`, `Humbled, Brahmā falls at Kṛṣṇa's feet and offers forty sublime prayers celebrating pure bhakti over dry logic (SB 10.14.8), praising Vṛndāvana's dust.`, `Relinquish intellectual pride and await Kṛṣṇa's grace with patience.`],
+        [15, `The Killing of Dhenukāsura`, `Entering adolescence as cowherds, Kṛṣṇa and Balarāma visit Tālavana palm grove, where Balarāma effortlessly flings donkey-demon Dhenukāsura atop the palms.`, `Let Balarāma's spiritual strength shatter stubborn mental dullness.`],
+        [16, `Kṛṣṇa Chastises the Serpent Kāliya`, `Kāliya's venom poisons the Yamunā; Kṛṣṇa dives in, dances upon Kāliya's hoods until the serpent and his wives surrender, and sends Kāliya safely to Ramaṇaka Island.`, `Purify poisoned hearts by inviting Kṛṣṇa to dance upon our ego.`],
+        [17, `The History of Serpent Kāliya`, `Explains why Kāliya feared Garuḍa, and recounts how Kṛṣṇa swallowed a raging midnight forest fire to save the sleeping Vrajavāsīs.`, `Trust Kṛṣṇa to swallow crises that surround His sleeping devotees.`],
+        [18, `Lord Balarāma Slays the Demon Pralamba`, `During joyful summer pastimes at Bhāṇḍīravana, disguised demon Pralamba carries off Balarāma on his shoulders and is struck dead by Balarāma's fist.`, `Recognize hypocrisy lurking amidst fellowship and rely on Balarāma's clarity.`],
+        [19, `Swallowing the Forest Fire`, `Rescuing cows wandered into Muñjāṭavī cane forest, Kṛṣṇa once again drinks a surrounding forest fire as the gopas close their eyes in faith.`, `Close the eyes of panic in crises and call Kṛṣṇa with childlike trust.`],
+        [20, `The Rainy Season and Autumn in Vṛndāvana`, `Poetically paints Vṛndāvana's monsoon and bright autumn skies, drawing philosophical parallels between nature's cycles and spiritual life.`, `Read spiritual lessons in every changing season of nature.`],
+        [21, `The Gopīs Glorify the Song of Kṛṣṇa’s Flute`, `Hearing Kṛṣṇa's flute from the forest in autumn, the gopīs sing the Veṇu-gīta, marveling how deer, rivers, clouds, and Govardhana respond to His music.`, `Listen inwardly to the call of Kṛṣṇa's flute amidst daily chores.`],
+        [22, `Kṛṣṇa Steals the Garments of the Unmarried Gopīs`, `Young gopīs observe the Kātyāyanī vow praying for Kṛṣṇa as their husband; Kṛṣṇa playfully teaches complete unreserved surrender by returning their garments only upon full humility.`, `Approach God without hidden egoistic coverings or false modesty.`],
+        [23, `The Brāhmaṇas’ Wives Blessed`, `Hungry cowherd boys beg food from ritualistic brāhmaṇas who refuse, whereas their simple wives rush eagerly with offerings to Kṛṣṇa and attain supreme love.`, `Loving spontaneous devotion pleases Kṛṣṇa far more than dry ritualism.`],
+        [24, `Worshiping Govardhana Hill`, `Kṛṣṇa persuades Nanda Mahārāja to halt Indra's sacrifice and instead honor cows, brāhmaṇas, and Govardhana Hill, appearing in giant form to accept the feast.`, `Honor the immediate sacred caretakers and environment Kṛṣṇa places around you.`],
+        [25, `Lord Kṛṣṇa Lifts Govardhana Hill`, `Furious Indra sends devastating Samvartaka rainstorms; seven-year-old Kṛṣṇa effortlessly lifts Govardhana Hill upon His left little finger for seven days as a protective umbrella.`, `Take calm shelter beneath Kṛṣṇa's protection during life's fiercest storms.`],
+        [26, `Wonderful Kṛṣṇa`, `Seeing a seven-year-old hold a mountain for seven days, bewildered cowherds question Nanda, who recounts Garga Muni's prophecy of Kṛṣṇa's divine stature.`, `Let wonder deepen love rather than distance intimacy.`],
+        [27, `Prayers by Indra and Mother Surabhi`, `Humbled Indra arrives with Surabhi cow, begs forgiveness, bathes Kṛṣṇa in celestial water, and honors Him with the title Govinda.`, `Confess arrogance sincerely and celebrate Kṛṣṇa as Govinda, protector of cows.`],
+        [28, `Kṛṣṇa Rescues Nanda Mahārāja from the Abode of Varuṇa`, `When Varuṇa's servants arrest Nanda for bathing at night, Kṛṣṇa visits Varuṇaloka, brings His father back, and grants the cowherds a dazzling vision of Vaikuṇṭha.`, `Appreciate how Kṛṣṇa elevates even simple rural elders to highest truth.`],
+        [29, `Kṛṣṇa and the Gopīs Meet for the Rāsa Dance`, `Opening of the Rāsa-pañcādhyāya: on the Śarat-pūrṇimā full moon night, Kṛṣṇa plays His flute, summoning the gopīs; testing their resolve, He begins the Rāsa dance then suddenly vanishes to humble their pride.`, `Guard the heart against even subtle pride in spiritual intimacy.`],
+        [30, `The Gopīs Search for Kṛṣṇa`, `Maddened by separation, the gopīs question trees, creepers, and deer for news of Kṛṣṇa, enact His pastimes, and discover footprints leading to Rādhārāṇī—whom He leaves next.`, `Seek Kṛṣṇa fervently in separation (viraha) alongside fellow devotees.`],
+        [31, `The Gopīs’ Songs of Separation`, `Seated on the Yamunā sands, the gopīs sing the heart-melting Gopī-gīta—eighteen verses of pure longing begging Kṛṣṇa to reappear and revive them.`, `Recite prayers of humble longing as the pinnacle of bhakti-rasa.`],
+        [32, `The Reunion`, `Moved beyond measure by the Gopī-gīta, Kṛṣṇa reappears smiling in yellow silk and humbly confesses He can never repay the gopīs' selfless love.`, `Know that Kṛṣṇa remains forever indebted to selfless devotion.`],
+        [33, `The Rāsa Dance`, `Kṛṣṇa expands Himself beside every gopī in the cosmic Rāsa-līlā circle; Śukadeva clarifies (SB 10.33.36) that these transcendental pastimes purify anyone who hears them faithfully.`, `Hear Rāsa-līlā with reverence to uproot mundane lust from the heart.`],
+        [34, `Nanda Mahārāja Saved and Śaṅkhacūḍa Slain`, `During Śivarātri pilgrimage, Kṛṣṇa rescues Nanda from python Vidyādhara and slays arrogant Yakṣa Śaṅkhacūḍa who harassed the gopīs.`, `Protect devotional communities from exploitation and spiritual predators.`],
+        [35, `The Gopīs Sing of Kṛṣṇa as He Wanders in the Forest`, `Unable to accompany Kṛṣṇa while He grazes cows by day, the gopīs sing the Yugala-gīta, meditating continuously on His flute and forested footsteps.`, `Transform routine daily separation from temple or altar into deep smaraṇam.`],
+        [36, `The Slaying of Ariṣṭāsura`, `Kṛṣṇa slays bull-demon Ariṣṭāsura; Nārada then reveals Kṛṣṇa's identity to Kaṁsa, who dispatches Akrūra to invite Kṛṣṇa and Balarāma to Mathurā's bow festival.`, `Know that external schemes only accelerate Kṛṣṇa's liberating plan.`],
+        [37, `The Killing of the Demons Keśī and Vyoma`, `Kṛṣṇa slays horse-demon Keśī (earning the name Keśava) as Nārada praises His future pastimes, and stops bat-demon Vyomāsura abducting cowherd boys.`, `Rely on Keśava to dispel restless, galloping doubts.`],
+        [38, `Akrūra’s Arrival in Vṛndāvana`, `Ecstatic Akrūra travels to Vṛndāvana, beholds Kṛṣṇa's footprints in the dust, and delivers Kaṁsa's invitation to Nanda and the boys.`, `Approach sacred dhāmas with Akrūra's humility and devotional awe.`],
+        [39, `Akrūra’s Return Journey`, `Heartbroken gopīs lament Kṛṣṇa's departure aboard Akrūra's chariot; en route at the Yamunā, Akrūra beholds Kṛṣṇa and Balarāma as Mahā-Viṣṇu and Śeṣa underwater.`, `Feel the bittersweet tension between Vraja's intimacy and cosmic majesty.`],
+        [40, `The Prayers of Akrūra`, `Akrūra offers sublime prayers glorifying all Vedic paths as converging streams flowing into the ocean of Kṛṣṇa.`, `See Kṛṣṇa as the singular destination of every spiritual tradition.`],
+        [41, `Kṛṣṇa and Balarāma Enter Mathurā`, `Entering Mathurā, Kṛṣṇa accepts garlands from florist Sudāmā, slays Kaṁsa's arrogant washerman, and dresses elegantly with a friendly tailor.`, `Offer whatever craft you practice—flowers, tailoring, service—cheerfully to Kṛṣṇa.`],
+        [42, `The Breaking of the Bow in the Sacrificial Arena`, `Kṛṣṇa straightens hunchbacked Kubjā, snaps Kaṁsa's monumental bow like a sugarcane stalk, and enters the wrestling arena despite Kaṁsa's nightmares.`, `Straighten crooked desires through affectionate service like Kubjā.`],
+        [43, `Kṛṣṇa Kills the Elephant Kuvalayāpīḍa`, `At the arena gate, Kṛṣṇa playfully wrestles and slays mad elephant Kuvalayāpīḍa before stepping onto the stage in dazzling beauty.`, `Meet monumental obstacles with fearless spiritual poise.`],
+        [44, `The Killing of Kaṁsa`, `Kṛṣṇa and Balarāma defeat wrestlers Cāṇūra and Muṣṭika; Kṛṣṇa leaps onto the high dais, drags tyrant Kaṁsa down by the hair, and frees Vasudeva and Devakī.`, `Liberate oppressed hearts by confronting internal and external tyranny.`],
+        [45, `Kṛṣṇa Rescues His Teacher’s Son`, `Restoring Ugrasena to Mathurā's throne, Kṛṣṇa and Balarāma study at Sāndīpani Muni's gurukula in 64 days and rescue their guru's drowned son from Yamaloka.`, `Honor teachers wholeheartedly and repay education with humble service.`],
+        [46, `Uddhava Visits Vṛndāvana`, `Missing Vraja, Kṛṣṇa sends His dear friend Uddhava to console Nanda, Yaśodā, and the gopīs; Uddhava marvels at Nanda's overwhelming love.`, `Learn the highest devotional humility from Vraja's simple residents.`],
+        [47, `The Song of the Bee`, `Seeing a bumblebee, Śrīmatī Rādhārāṇī speaks the profound Bhramara-gīta to Uddhava; awed by the gopīs' madness of love, Uddhava prays to become a blade of grass in Vṛndāvana.`, `Aspire merely to serve the dust of pure devotees' feet.`],
+        [48, `Kṛṣṇa Pleases His Devotees`, `Kṛṣṇa visits Kubjā (Trivakrā) and Akrūra in Mathurā, comforting them and dispatching Akrūra to Hastināpura to check on the Pāṇḍavas.`, `Balance lofty philosophy with warm loyalty to humble friends.`],
+        [49, `Akrūra’s Mission in Hastināpura`, `Akrūra consoles Queen Kuntī and advises blind Dhṛtarāṣṭra against partiality toward his sons, though Dhṛtarāṣṭra admits he cannot overcome attachment.`, `Beware of acknowledging truth intellectually while refusing to act on it.`],
+        [50, `Kṛṣṇa Establishes the City of Dvārakā`, `Enraged by Kaṁsa's death, Jarāsandha besieges Mathurā seventeen times; as Kālayavana approaches, Kṛṣṇa builds the impregnable sea-fortress city of Dvārakā.`, `Protect your spiritual community wisely before embarking on wider missions.`],
+        [51, `The Deliverance of Mucukunda`, `Luring Kālayavana into a mountain cave, Kṛṣṇa lets awakened King Mucukunda burn him to ashes with a glance, then blesses Mucukunda with devotion.`, `Turn away from exhausting royal power toward quiet penance and bhakti.`],
+        [52, `Rukmiṇī’s Message to Lord Kṛṣṇa`, `Fleeing Jarāsandha atop Pravaraṣaṇa hill, Kṛṣṇa and Balarāma reach Dvārakā; Princess Rukmiṇī sends a brāhmaṇa with her famous seven-verse love letter begging Kṛṣṇa to rescue her from Śiśupāla.`, `Express heartfelt yearning to belong solely to Kṛṣṇa.`],
+        [53, `Kṛṣṇa Kidnaps Rukmiṇī`, `At Vidarbha, while Rukmiṇī visits Ambikā's temple, Kṛṣṇa sweeps her onto His chariot before assembled kings and Balarāma disperses their armies.`, `Act courageously when protecting sincere surrender.`],
+        [54, `The Marriage of Kṛṣṇa and Rukmiṇī`, `Kṛṣṇa subdues Rukmiṇī's arrogant brother Rukmī—sparing his life at Rukmiṇī's plea by shaving his head—and celebrates His wedding in Dvārakā.`, `Temper victory with mercy out of respect for devotees' feelings.`],
+        [55, `The History of Pradyumna`, `Cupid reborn as Kṛṣṇa and Rukmiṇī's son Pradyumna is cast into the sea by demon Śambara, raised by Māyāvatī, and slays Śambara to reunite with his parents.`, `Trust that lost spiritual gifts return in Kṛṣṇa's perfect time.`],
+        [56, `The Syamantaka Jewel`, `Satrājit suspects Kṛṣṇa of stealing the radiant Syamantaka jewel; clearing His name, Kṛṣṇa defeats Jāmbavān in a 28-day duel and marries Jāmbavatī and Satyabhāmā.`, `Clear unjust slander diligently without holding rancor against accusers.`],
+        [57, `Satrājit Murdered, the Jewel Returned`, `While Kṛṣṇa visits Hastināpura, Śatadhanvā murders Satrājit for the jewel; Kṛṣṇa tracks Śatadhanvā, forgives Akrūra, and leaves the jewel safely in Akrūra's care.`, `Exercise discretion and forgiveness when resolving community disputes.`],
+        [58, `Kṛṣṇa Marries Five Princesses`, `Visiting Indraprastha, Kṛṣṇa helps Arjuna win Draupadī or blesses the Pāṇḍavas' Khāṇḍava forest pastime, and marries Kālindī, Mitravindā, Nāgnajitī (taming seven bulls), Bhadrā, and Lakṣmaṇā.`, `Cherish Kṛṣṇa's diverse loving relationships with His devotees.`],
+        [59, `The Killing of the Demon Narakāsura`, `Flying on Garuḍa with Satyabhāmā to Prāgjyotiṣapura, Kṛṣṇa slays Narakāsura, recovers Aditi's earrings, and marries 16,100 rescued captive princesses.`, `Rescue and restore dignity to souls trapped by exploitation.`],
+        [60, `Lord Kṛṣṇa Teases Queen Rukmiṇī`, `To display the depth of Rukmiṇī's love, Kṛṣṇa playfully teases her about her marriage choice; she faints in distress until Kṛṣṇa tenderly reassures her.`, `Express genuine gratitude and reassurance to faithful loved ones.`],
+        [61, `The Genealogy of the Family of Kṛṣṇa`, `Describes Kṛṣṇa's sons beginning with Pradyumna, and how Balarāma slays deceitful Rukmī after a cheating dice match at Aniruddha's wedding.`, `Keep social amusement free from fraud and arrogance.`],
+        [62, `The Meeting of Ūṣā and Aniruddha`, `Bāṇāsura's daughter Ūṣā dreams of Aniruddha; her friend Citralekhā brings Aniruddha to Śoṇitapura, where Bāṇāsura binds him in snake ropes.`, `Seek wise guidance when youthful affection meets family conflict.`],
+        [63, `Lord Kṛṣṇa Fights with Bāṇāsura`, `Leading Yadu armies to free Aniruddha, Kṛṣṇa battles Lord Śiva (protecting Bāṇa), spares Bāṇa's life at Śiva's request while severing his extra arms, and brings the couple home.`, `Accept divine discipline that prunes excess pride while saving the soul.`],
+        [64, `The Story of King Nṛga`, `Rescuing a lizard trapped in a well, Kṛṣṇa reveals it was charitable King Nṛga cursed for accidentally donating one brāhmaṇa's cow to another.`, `Practice scrupulous care when handling sacred trusts and charity.`],
+        [65, `Lord Balarāma Visits Vṛndāvana`, `Missing Vraja, Balarāma visits for two months, comforts the cowherds, and drags the Yamunā river closer with His plow during Rāsa celebrations.`, `Refresh spiritual roots by revisiting saintly origins.`],
+        [66, `Pauṇḍraka, the False Vāsudeva`, `Foolish King Pauṇḍraka wears imitation Viṣṇu emblems claiming to be Vāsudeva; Kṛṣṇa beheads him and later burns his Kāśī allies.`, `Shun pretentious spiritual imitation and cultivate authentic humility.`],
+        [67, `Lord Balarāma Slays Dvivida Gorilla`, `Arrogant gorilla Dvivida wreaks havoc across kingdoms until Balarāma slays him atop Raivataka Mountain.`, `Check destructive pride before it harms innocent communities.`],
+        [68, `The Marriage of Sāmba`, `Kṛṣṇa's son Sāmba abducts Duryodhana's daughter Lakṣmaṇā and is captured by Kauravas; Balarāma threatens to drag Hastināpura into the Gaṅgā with His plow until the Kauravas yield.`, `Defend family honor firmly while preferring peaceful reconciliation.`],
+        [69, `Nārada Muni Visits Lord Kṛṣṇa’s Palaces in Dvārakā`, `Curious how Kṛṣṇa manages 16,108 wives simultaneously, Nārada enters palace after palace and witnesses Kṛṣṇa performing completely distinct household, Vedic, and devotional duties in each.`, `Balance spiritual practice seamlessly across daily responsibilities.`],
+        [70, `Lord Kṛṣṇa’s Daily Activities`, `Details Kṛṣṇa's ideal daily routine from Brahma-muhūrta meditation and charity to Sudharmā assembly, where jailed kings' messenger begs liberation from Jarāsandha.`, `Structure each day around early-morning meditation and selfless duty.`],
+        [71, `The Lord Travels to Indraprastha`, `Acting on Nārada's advice, Kṛṣṇa travels with royal splendor to Indraprastha to support Yudhiṣṭhira's Rājasūya sacrifice.`, `Support noble initiatives that glorify God and unite the virtuous.`],
+        [72, `The Slaying of the Demon Jarāsandha`, `Kṛṣṇa, Bhīma, and Arjuna enter Magadha disguised as brāhmaṇas; Bhīma wrestles Jarāsandha for 27 days until Kṛṣṇa signals how to tear him in two, freeing 20,800 imprisoned kings.`, `Use strategic courage to break entrenched oppression.`],
+        [73, `Lord Kṛṣṇa Blesses the Liberated Kings`, `Kṛṣṇa counsels the freed kings on impermanence, instills pure bhakti in them, installs Sahadeva on Magadha's throne, and returns to Indraprastha.`, `Turn hard-won freedom toward spiritual service, not renewed pride.`],
+        [74, `The Deliverance of Śiśupāla`, `At Yudhiṣṭhira's Rājasūya, Kṛṣṇa receives first worship; envious Śiśupāla hurls 100 insults until Kṛṣṇa severs his head with Sudarśana Cakra, merging Śiśupāla's soul into His effulgence.`, `Maintain dignity amidst malicious slander and trust Kṛṣṇa's timing.`],
+        [75, `Why Duryodhana Felt Insulted at the End of the Rājasūya Sacrifice`, `After Rājasūya concludes blissfully, envious Duryodhana is bewildered by Maya Dānava's palace illusions and vows revenge when Draupadī and the Pāṇḍavas laugh.`, `Avoid mocking others' embarrassment, and guard against festering envy.`],
+        [76, `The Battle Between Śālva and the Vṛṣṇis`, `Avenging Śiśupāla, King Śālva obtains the mystic Saubha airship from Lord Śiva and besieges Dvārakā while Kṛṣṇa is in Indraprastha.`, `Stay vigilant in defending sacred communities during absence of leadership.`],
+        [77, `The Deliverance of Śālva`, `Returning swiftly, Kṛṣṇa sees through Śālva's mystic illusion of Vasudeva's execution, shatters Saubha with His club, and slays Śālva with Sudarśana.`, `Look past emotional illusions constructed by deceitful adversaries.`],
+        [78, `The Killing of Dantavakra, Vidūratha, and Romaharṣaṇa`, `Kṛṣṇa slays Dantavakra and Vidūratha; during pilgrimage, Balarāma accidentally slays Romaharṣaṇa Sūta for disrespect, installs Ugraśravā (Sūta Gosvāmī), and performs atonement by slaying Balvala.`, `Even exalted personalities honor social and spiritual etiquette.`],
+        [79, `Lord Balarāma Goes on Pilgrimage`, `Balarāma tours India's sacred rivers and shrines, declines taking sides in the Kurukṣetra war, and returns to Dvārakā.`, `Honor sacred pilgrimage places while remaining neutral in fratricidal strife.`],
+        [80, `The Brāhmaṇa Sudāmā Visits Lord Kṛṣṇa in Dvārakā`, `Impoverished childhood classmate Sudāmā Vipra visits Dvārakā carrying a handful of chipped rice; Kṛṣṇa washes his feet, seats him on Rukmiṇī's bed, and relishes his humble offering.`, `Give Kṛṣṇa whatever simple offering you have with pure affection.`],
+        [81, `The Lord Blesses Sudāmā Brāhmaṇa`, `Too shy to ask for wealth, Sudāmā returns home gratefully—only to find his hut transformed into a jeweled palace—yet stays wholly unattached to opulence.`, `Value Kṛṣṇa's friendship infinitely more than the wealth He bestows.`],
+        [82, `Kṛṣṇa and Balarāma Meet the Inhabitants of Vṛndāvana`, `During a solar eclipse at Kurukṣetra, Dvārakā's Yadus, Pāṇḍavas, and Vraja's Nanda, Yaśodā, and gopīs reunite in overwhelming ecstatic affection.`, `Cherish sacred reunions of devotees across paths of life.`],
+        [83, `Draupadī Meets the Queens of Kṛṣṇa`, `Rukmiṇī, Satyabhāmā, Jāmbavatī, and Kṛṣṇa's principal queens share the wondrous stories of their marriages with Draupadī.`, `Celebrate the diverse ways Kṛṣṇa draws different hearts to Himself.`],
+        [84, `The Sages’ Teachings at Kurukṣetra`, `Assembled sages glorify Kṛṣṇa; Vasudeva performs great charity, receives wisdom on karmic duties from the sages, and bids tender farewell to Nanda Mahārāja.`, `Use occasions of abundance to perform charity and hear from sages.`],
+        [85, `Lord Kṛṣṇa Instructs Vasudeva and Retrieves Devakī’s Six Dead Sons`, `Vasudeva and Devakī inquire humbly from their son Kṛṣṇa, who enters Sutala with Balarāma to retrieve Devakī's six slain infants from Bali Mahārāja.`, `Revere parents and fulfill heartfelt duties even after attaining heights.`],
+        [86, `Arjuna Kidnaps Subhadrā, and Kṛṣṇa Blesses His Devotees`, `Kṛṣṇa helps Arjuna elope with Subhadrā, then visits Mithilā simultaneously to bless both proud King Bahulāśva and humble brāhmaṇa Śrutadeva.`, `Remember Kṛṣṇa looks solely at pure devotion, whether in palace or hut.`],
+        [87, `Prayers by the Personified Vedas`, `Parīkṣit asks how words can describe the Infinite; Śukadeva relates the Śruti-gīta—prayers spoken by the personified Vedas at the dawn of creation glorifying Nārāyaṇa.`, `Approach Upaniṣadic philosophy through the lens of pure bhakti.`],
+        [88, `Lord Śiva Saved from Vṛkāsura`, `Explains why materialists worshipping Śiva thrive fast while Viṣṇu's devotees renounce wealth for pure love; Vṛkāsura chases Śiva with his touch-of-death boon until Viṣṇu tricks him into touching his own head.`, `Understand Kṛṣṇa gradually strips illusions to grant real shelter.`],
+        [89, `Kṛṣṇa and Arjuna Retrieve a Brāhmaṇa’s Sons`, `Testing the superiority of Viṣṇu, Bhṛgu Muni kicks Viṣṇu's chest and receives gentle welcome; later Kṛṣṇa and Arjuna cross cosmic coverings to Mahā-Viṣṇu's abode to restore a brāhmaṇa's ten lost sons.`, `Practice Viṣṇu-like tolerance when tested, knowing Kṛṣṇa is the source of all.`],
+        [90, `Summary of Lord Kṛṣṇa’s Glories`, `Concludes Canto Ten by depicting Kṛṣṇa's blissful aquatic pastimes in Dvārakā, the queens' ecstatic separation songs, and a summary of His inexhaustible qualities.`, `Absorb the mind daily in Kṛṣṇa's nectarean qualities as life's summum bonum.`]
+      ],
+      11: [
+        [1, `The Curse Upon the Yadu Dynasty`, `Having relieved Earth's burden, Kṛṣṇa arranges to withdraw the mighty Yadu dynasty; playful Yadu youths dress Sāmba as a pregnant woman before visiting sages, earning the curse of the iron club.`, `Never mock saintly souls or treat spiritual power lightly.`],
+        [2, `Mahārāja Nimi Meets the Nine Yogendras`, `Vasudeva asks Nārada about Bhāgavata-dharma; Nārada narrates King Nimi's dialogue with the nine Yogendras, where Kavi teaches worshiping Kṛṣṇa to transcend fear (SB 11.2.37).`, `Anchor life in fearless devotion under a bona fide guru.`],
+        [3, `Liberation from the Illusory Energy`, `Prabuddha and Pippalāyana explain Māyā's nature, accepting a spiritual master, practicing regulated bhakti, and understanding Paramātmā.`, `Seek a qualified guru to navigate cleanly out of māyā's illusions.`],
+        [4, `Drumila Explains the Incarnations of Godhead to King Nimi`, `Āvirhotra and Drumila detail Vedic karma-kāṇḍa, the Lord's principal incarnations (Nara-Nārāyaṇa resisting Cupid's temptation), and the supreme potency of bhakti.`, `Stay serene amidst worldly temptations like Nara-Nārāyaṇa.`],
+        [5, `Nārada Concludes His Teachings to Vasudeva`, `Camasa explains the fate of non-devotees, while Karabhājana reveals the four yuga-avatāras—teaching Saṅkīrtana-yajña for Kali-yuga (kṛṣṇa-varṇaṁ tviṣākṛṣṇam).`, `Embrace Kali-yuga's special gift: congregational chanting of Kṛṣṇa's names.`],
+        [6, `The Yadu Dynasty Retires to Prabhāsa`, `Brahmā and demigods invite Kṛṣṇa back to His abode; Kṛṣṇa sends the Yadus to Prabhāsa while devoted Uddhava begs not to be left behind.`, `Stay closely attached to Kṛṣṇa's instructions when external support shifts.`],
+        [7, `Lord Kṛṣṇa Instructs Uddhava`, `Opening the Uddhava-gītā: Kṛṣṇa prepares Uddhava for detachment and narrates how the Avadhūta Brāhmaṇa (Dattātreya) learned 24 spiritual lessons from nature.`, `Keep a learner's eyes open to draw wisdom from every aspect of creation.`],
+        [8, `The Story of Piṅgalā`, `Avadhūta learns from the bee, moth, python, spider, and others—and relates how courtesan Piṅgalā abandoned restless hope in lovers to find peace in Kṛṣṇa alone.`, `Trade anxious worldly expectations for serene contentment in God.`],
+        [9, `Detachment from All That Is Material`, `Concludes the 24 gurus (osprey, maiden's bangles, arrowsmith, wasp) and urges immediate striving in rare human life before death (SB 11.9.29).`, `Simplify desires like the maiden's single quiet bangle and prioritize liberation.`],
+        [10, `The Nature of Fruitive Activity`, `Kṛṣṇa explains how Vedic ritualists bound to heaven still remain within time and illusion unless freed by knowledge and devotion.`, `Seek eternal truth rather than temporary celestial promotions.`],
+        [11, `The Symptoms of Conditioned and Liberated Living Entities`, `Contrasts bound vs. liberated souls through the famous analogy of two birds perched on one tree, then praises pure devotees above all.`, `Shift focus from enjoying life's fruits to witnessing with Kṛṣṇa.`],
+        [12, `Beyond Renunciation and Knowledge`, `Kṛṣṇa declares that neither yoga, sāṅkhya, nor austerity captures Him as swiftly as sādhu-saṅga, recounting how simple Vraja residents surpassed scholars.`, `Treasure the company of genuine devotees above solitary intellectualism.`],
+        [13, `The Haṁsa-avatāra Answers the Questions of the Kumāras`, `Explains the three guṇas, urges cultivating sattva first to transcend all modes, and narrates how Lord Haṁsa instructed Brahmā's sons to sever material dreaming.`, `Elevate daily habits into sattva-guṇa as the springboard to transcendence.`],
+        [14, `Lord Kṛṣṇa Explains the Yoga System to Uddhava`, `Uddhava asks which spiritual process fits best; Kṛṣṇa again ranks bhakti-yoga supreme ("bhaktyāham ekayā grāhyaḥ") and describes meditation on His form.`, `Cultivate melting devotion through hearing and chanting Kṛṣṇa's glories.`],
+        [15, `Lord Kṛṣṇa’s Description of Mystic Yoga Perfections`, `Lists the eighteen siddhis (aṇimā, mahimā, laghimā, etc.) yet warns Uddhava that mystic powers become obstacles to pure bhakti.`, `Do not chase spiritual spectacle or psychic powers over pure love.`],
+        [16, `The Lord’s Opulence`, `Reveals Kṛṣṇa's Vibhūti-yoga—just as in Bhagavad-gītā Ch. 10—showing every splendor in creation is a spark of His beauty.`, `See every excellence in nature and art as a window onto Kṛṣṇa.`],
+        [17, `Lord Kṛṣṇa’s Description of the Varṇāśrama System`, `Outlines social and spiritual orders (brahmacarya, gṛhastha, vānaprastha, sannyāsa) centered on serving Kṛṣṇa peacefully.`, `Perform your social stage dutifully as an offering to the Lord.`],
+        [18, `Description of Varṇāśrama-dharma`, `Details vānaprastha and sannyāsa conduct—tolerance, nonviolence, silence, and freedom from false ego.`, `Practice progressive simplicity and emotional equilibrium.`],
+        [19, `The Perfection of Spiritual Knowledge`, `Kṛṣṇa defines true knowledge, austerity, charity, forgiveness, and lists the nine-limbed devotion culminating in pure love.`, `Measure spiritual growth by humility, tolerance, and non-enmity.`],
+        [20, `Pure Devotional Service Surpasses Knowledge and Detachment`, `Distinguishes the three paths—karma, jñāna, and bhakti—confirming human birth is the rare boat across material existence with guru as captain.`, `Board the boat of human life with Kṛṣṇa's favorable wind and guru's guidance.`],
+        [21, `Lord Kṛṣṇa’s Explanation of the Vedic Path`, `Clarifies why scriptures offer flowery fruitive rewards merely to entice reluctant minds gradually toward real renunciation.`, `Understand scriptural context so lower incentives never obscure the highest goal.`],
+        [22, `Enumeration of the Elements of Material Creation`, `Analyzes the Sāṅkhya categories (from 24 to 28 or 9) and counsels tolerating insults patiently.`, `Remain undisturbed by external praise or blame.`],
+        [23, `The Song of the Avantī Brāhmaṇa`, `Narrates how a miserly rich brāhmaṇa lost his wealth, embraced tridaṇḍi sannyāsa, endured mockery, and sang the Bhikṣu-gīta declaring the uncontrolled mind—not others—to be the sole cause of suffering.`, `Stop blaming external people or fate; master your own mind.`],
+        [24, `The Philosophy of Sāṅkhya`, `Summarizes cosmic creation and dissolution from subtle mahat-tattva back into the Supreme Lord.`, `Witness material fluctuations calmly from the anchor of spirit.`],
+        [25, `The Three Modes of Nature and Beyond`, `Shows how sattva, rajas, and tamas color all thoughts, work, charity, and destinations—urging transcendence through devotion.`, `Observe which mode drives your choices daily and redirect them to Kṛṣṇa.`],
+        [26, `The Aila-gīta`, `Recalls King Purūravā's song of awakening after Urvaśī's departure, warning against lustful association and praising saintly company.`, `Break toxic attachments firmly through discernment and sādhu-saṅga.`],
+        [27, `Lord Kṛṣṇa’s Instructions on the Process of Deity Worship`, `Explains Kriyā-yoga—authentic Deity worship (arcā-vigraha) through offerings of flowers, incense, water, and devotion—making the Infinite intimately accessible.`, `Honor temple or home deity worship with cleanliness, punctuality, and love.`],
+        [28, `Jñāna-yoga`, `Warns against criticizing others' faults, teaches seeing the Absolute Reality behind shifting appearances, and describes peaceful samādhi.`, `Replace fault-finding with serene perception of the Paramātmā in all.`],
+        [29, `Bhakti-yoga`, `Concludes the Uddhava-gītā with the simplest, surest method to conquer māyā: offer every action to Kṛṣṇa, cherish devotees, and send Uddhava to Badarikāśrama.`, `Dedicate every daily duty directly to Kṛṣṇa and trust His guidance.`],
+        [30, `The Disappearance of the Yadu Dynasty`, `At Prabhāsa, intoxicated Yadus quarrel using reed stalks (which turn into iron rods from the sage's curse) and withdraw from earth; Balarāma enters meditation and departs.`, `See how Kṛṣṇa cleanly winds up His earthly entourage by His own plan.`],
+        [31, `The Disappearance of Lord Kṛṣṇa`, `Hunter Jarā pierces Kṛṣṇa's lotus foot beneath a banyan tree; Kṛṣṇa blesses Jarā, ascends in His own spiritual body amidst celestial awe, and Dvārakā merges into the sea (except Kṛṣṇa's palace).`, `Know Kṛṣṇa never dies or leaves His devotees; He lives eternally in His dhāma and words.`]
+      ],
+      12: [
+        [1, `The Degraded Dynasties of Kali-yuga`, `Śukadeva prophesies future royal dynasties of Magadha—Śiśunāga, Nanda, Maurya, Śuṅga, Andhra—warning how rulers in Kali-yuga grow greedy and irreligious.`, `Never look to worldly politics for spiritual salvation.`],
+        [2, `The Symptoms of Kali-yuga`, `Vividly depicts Kali-yuga's moral decline—dwindling lifespan, hypocrisy, broken families—and foretells Lord Kalki's appearance on a white horse to restore Satya-yuga.`, `Keep spiritual standards vibrant even amidst widening cultural decline.`],
+        [3, `The Bhūmi-gīta`, `Mother Earth laughs at arrogant kings boasting of conquering her; Śukadeva declares that Kali-yuga's single supreme virtue is attaining perfection solely by chanting Kṛṣṇa's name (SB 12.3.51).`, `Practice daily Hari-nāma saṅkīrtana as the decisive antidote to Kali-yuga.`],
+        [4, `The Four Categories of Universal Annihilation`, `Explains the four types of pralaya—nitya (momentary), naimittika (end of Brahmā's day), prākṛtika (end of Brahmā's life), and ātyantika (ultimate liberation of the soul)—affirming the Bhāgavatam as the raft across the ocean.`, `Put earthly losses in perspective beside cosmic dissolution.`],
+        [5, `Śukadeva Gosvāmī’s Final Instructions to Mahārāja Parīkṣit`, `Śukadeva delivers his parting realization: "You are not the body; you never die," shattering Parīkṣit's fear of death before departing.`, `Remember the eternal, indestructible nature of the soul.`],
+        [6, `Mahārāja Parīkṣit Passes Away`, `Transformed and fearless, Parīkṣit offers gratitude, seats himself calmly in trance; Takṣaka bites him turning his body to ashes while Parīkṣit attains perfection. Janamejaya's snake-sacrifice is halted by Bṛhaspati; introduces Vyāsa's Vedic branches.`, `Meet life's final hour with gratitude, fearlessness, and absorption.`],
+        [7, `The Purāṇic Literatures`, `Traces the Purāṇic disciplic lineages through Romaharṣaṇa and lists the eighteen Mahā-purāṇas along with the ten Purāṇic characteristics.`, `Respect the organized preservation of Vedic and Purāṇic wisdom.`],
+        [8, `Mārkaṇḍeya’s Prayers to Nara-Nārāyaṇa Ṛṣi`, `Mārkaṇḍeya Ṛṣi practices unbroken austerity at Badarikāśrama, easily overcomes Indra's celestial temptresses, and worships Nara-Nārāyaṇa Ṛṣi with profound humility.`, `Meet subtle spiritual tests with unwavering focus on the Lord.`],
+        [9, `Mārkaṇḍeya Ṛṣi Sees the Illusory Energy of the Lord`, `Desiring to see the Lord's yogamāyā, Mārkaṇḍeya experiences a cosmic deluge alone until discovering baby Kṛṣṇa resting peacefully upon a banyan leaf, witnessing the universe inside Him.`, `Even amidst cosmic upheaval, Kṛṣṇa rests peacefully as the shelter of all.`],
+        [10, `Lord Śiva and Umā Glorify Mārkaṇḍeya Ṛṣi`, `Lord Śiva and Pārvatī visit Mārkaṇḍeya's hermitage; declining worldly boons, Mārkaṇḍeya asks solely for unbroken devotion to Viṣṇu and His Vaiṣṇavas.`, `Value pure devotion above all material or mystic boons.`],
+        [11, `Summary Description of the Mahāpuruṣa`, `Explains the cosmic limbs and weapons of Lord Viṣṇu, plus the twelve monthly expansions of the Sun god Sūrya-Nārāyaṇa sustained by sages and Gandharvas.`, `See sacred symbols—conch, disc, lotus, club—as facets of transcendence.`],
+        [12, `The Topics of Śrīmad-Bhāgavatam Summarized`, `Sūta Gosvāmī recaps the entire twelve-canto journey from Creation and Avatāras through Kṛṣṇa's pastimes and Parīkṣit's deliverance.`, `Review the whole arc of the Bhāgavatam regularly to hold its unity in mind.`],
+        [13, `The Glories of Śrīmad-Bhāgavatam`, `Lists the verse totals of all eighteen Purāṇas (18,000 for Bhāgavatam), honors giving the Bhāgavatam on the full moon of Bhādra (SB 12.13.13), proclaims it the essence of Vedānta (SB 12.13.15), and ends with the supreme nāma-saṅkīrtana praṇāma (SB 12.13.23).`, `Share and chant the Bhāgavatam's message daily with humility and joy.`]
+      ]
+    };
+
+    // =========================================================================
+    // 4. DIACRITIC-INSENSITIVE / SANSKRIT-NORMALIZED SEARCH ENGINE
+    // =========================================================================
+    function normalizeSanskrit(str) {
+      if (!str) return ``;
+      return String(str)
+        .toLowerCase()
+        .normalize(`NFD`)
+        .replace(/[\u0300-\u036f]/g, ``)
+        .replace(/[śṣ]/g, `s`)
+        .replace(/ṛ/g, `r`)
+        .replace(/ṝ/g, `r`)
+        .replace(/ḷ/g, `l`)
+        .replace(/[ṁṃ]/g, `m`)
+        .replace(/ḥ/g, `h`)
+        .replace(/[ñṇṅ]/g, `n`)
+        .replace(/ṭ/g, `t`)
+        .replace(/ḍ/g, `d`)
+        .replace(/[’'‘`]/g, ``)
+        .replace(/\s+/g, ` `)
+        .trim();
+    }
+
+    // Build phonetic synonym variants for standard English inputs
+    // e.g. "Krsna" <-> "Krishna", "Nrsimha" <-> "Narsimha", "Prthu" <-> "Prithu", "Vrtrasura" <-> "Vritrasura"
+    function buildPhoneticVariants(normQuery) {
+      const variants = new Set([normQuery]);
+      const rules = [
+        [/krsn/g, `krishn`],
+        [/krishn/g, `krsn`],
+        [/nrsimh/g, `narsimh`],
+        [/narsimh/g, `nrsimh`],
+        [/nrisimh/g, `nrsimh`],
+        [/prth/g, `prith`],
+        [/prith/g, `prth`],
+        [/vrtr/g, `vritr`],
+        [/vritr/g, `vrtr`],
+        [/rsabh/g, `rishabh`],
+        [/rishabh/g, `rsabh`],
+        [/vrsn/g, `vrishn`],
+        [/vrishn/g, `vrsn`],
+        [/dhrtar/g, `dhritar`],
+        [/dhritar/g, `dhrtar`],
+        [/shuk/g, `suk`],
+        [/shri/g, `sri`],
+        [/shiva/g, `siva`],
+        [/shisup/g, `sisup`],
+        [/slok/g, `shlok`],
+        [/shlok/g, `slok`]
+      ];
+      rules.forEach(([pattern, replacement]) => {
+        if (pattern.test(normQuery)) {
+          variants.add(normQuery.replace(pattern, replacement));
+        }
+      });
+      return Array.from(variants);
+    }
+
+    // Safe regex-free highlighting mapped back onto original UTF-16 string indices
+    function highlightNormalized(originalText, queryVariants) {
+      if (!originalText) return ``;
+      const cleanVariants = queryVariants.filter(v => v.length >= 2);
+      if (cleanVariants.length === 0) return escapeHtml(originalText);
+
+      // Map each original character to its normalized form while preserving index alignment
+      const charNorms = [];
+      for (let i = 0; i < originalText.length; i++) {
+        const rawChar = originalText[i];
+        const normChar = normalizeSanskrit(rawChar);
+        charNorms.push({ idx: i, norm: normChar });
+      }
+
+      let flatNorm = ``;
+      const flatToOrig = [];
+      for (let i = 0; i < charNorms.length; i++) {
+        const piece = charNorms[i].norm;
+        if (!piece) continue;
+        for (let k = 0; k < piece.length; k++) {
+          flatNorm += piece[k];
+          flatToOrig.push(charNorms[i].idx);
+        }
+      }
+
+      const ranges = [];
+      for (const variant of cleanVariants) {
+        let start = 0;
+        while (start < flatNorm.length) {
+          const found = flatNorm.indexOf(variant, start);
+          if (found === -1) break;
+          const origStart = flatToOrig[found];
+          const origEnd = flatToOrig[found + variant.length - 1] + 1;
+          ranges.push([origStart, origEnd]);
+          start = found + variant.length;
+        }
+      }
+
+      if (ranges.length === 0) return escapeHtml(originalText);
+
+      ranges.sort((a, b) => a[0] - b[0]);
+      const merged = [ranges[0]];
+      for (let i = 1; i < ranges.length; i++) {
+        const last = merged[merged.length - 1];
+        if (ranges[i][0] <= last[1]) {
+          last[1] = Math.max(last[1], ranges[i][1]);
+        } else {
+          merged.push(ranges[i]);
+        }
+      }
+
+      let out = ``;
+      let cursor = 0;
+      for (const [s, e] of merged) {
+        if (s > cursor) out += escapeHtml(originalText.slice(cursor, s));
+        out += `<mark class="search-hit">${escapeHtml(originalText.slice(s, e))}</mark>`;
+        cursor = e;
+      }
+      if (cursor < originalText.length) out += escapeHtml(originalText.slice(cursor));
+      return out;
+    }
+
+    function escapeHtml(text) {
+      return String(text)
+        .replace(/&/g, `&amp;`)
+        .replace(/</g, `&lt;`)
+        .replace(/>/g, `&gt;`)
+        .replace(/"/g, `&quot;`)
+        .replace(/'/g, `&#39;`);
+    }
+
+    // Build flattened searchable index of all 335 chapters
+    const ALL_CHAPTERS = [];
+    CANTOS.forEach(canto => {
+      const list = CHAPTER_DATA[canto.num] || [];
+      list.forEach(item => {
+        const [ch, title, summary, takeaway] = item;
+        const key = `${canto.num}.${ch}`;
+        const verses = LANDMARK_VERSES[key] || [];
+        const verseBlob = verses.map(v => `${v.ref} ${v.sanskrit} ${v.w2w} ${v.meaning}`).join(` `);
+        const rawBlob = `Canto ${canto.num} ${canto.title} ${canto.sanskrit} ${canto.limb} ${canto.topic} Chapter ${ch} ${key} ${title} ${summary} ${takeaway} ${verseBlob}`;
+        ALL_CHAPTERS.push({
+          key,
+          cantoNum: canto.num,
+          cantoTitle: canto.title,
+          cantoLimb: canto.limb,
+          cantoTopic: canto.topic,
+          ch,
+          title,
+          summary,
+          takeaway,
+          verses,
+          normBlob: normalizeSanskrit(rawBlob)
+        });
+      });
+    });
+
+    // =========================================================================
+    // 5. APPLICATION STATE & PERSISTENCE (notebookAppApi)
+    // =========================================================================
+    const state = {
+      activeCanto: 1,
+      searchQuery: ``,
+      openChapters: new Set([`1.1`]),
+      studiedChapters: new Set(),
+      theme: `light`
+    };
+
+    function persistState() {
+      const payload = {
+        activeCanto: state.activeCanto,
+        studiedChapters: Array.from(state.studiedChapters),
+        theme: state.theme
+      };
+      if (window.notebookAppApi && typeof window.notebookAppApi.setState === `function`) {
+        window.notebookAppApi.setState(payload);
+      }
+    }
+
+    async function hydrateState() {
+      if (window.notebookAppApi && typeof window.notebookAppApi.getState === `function`) {
+        try {
+          const saved = await window.notebookAppApi.getState();
+          if (saved && typeof saved === `object`) {
+            if (typeof saved.activeCanto === `number` && saved.activeCanto >= 1 && saved.activeCanto <= 12) {
+              state.activeCanto = saved.activeCanto;
+              state.openChapters = new Set([`${saved.activeCanto}.1`]);
+            }
+            if (Array.isArray(saved.studiedChapters)) {
+              state.studiedChapters = new Set(saved.studiedChapters);
+            }
+            if (saved.theme === `dark` || saved.theme === `light`) {
+              state.theme = saved.theme;
+            }
+          }
+        } catch (err) {
+          // Graceful fallback to defaults
+        }
+      }
+      applyTheme();
+      renderAll();
+    }
+
+    // =========================================================================
+    // 6. INTERACTIVE HANDLERS (Hoisted function declarations)
+    // =========================================================================
+    function applyTheme() {
+      document.documentElement.setAttribute(`data-theme`, state.theme);
+      const btn = document.getElementById(`theme-toggle-btn`);
+      if (btn) btn.textContent = state.theme === `dark` ? `Light Mode` : `Dark Mode`;
+    }
+
+    function toggleTheme() {
+      state.theme = state.theme === `dark` ? `light` : `dark`;
+      applyTheme();
+      persistState();
+    }
+
+    function selectCanto(cantoNum) {
+      if (cantoNum < 1 || cantoNum > 12) return;
+      state.activeCanto = cantoNum;
+      if (!state.searchQuery.trim()) {
+        state.openChapters = new Set([`${cantoNum}.1`]);
+      }
+      persistState();
+      renderAll();
+      const headerEl = document.getElementById(`canto-header-section`);
+      if (headerEl) headerEl.scrollIntoView({ behavior: `smooth`, block: `start` });
+    }
+
+    function handleSearchInput(val) {
+      state.searchQuery = val;
+      const clearBtn = document.getElementById(`clear-search-btn`);
+      if (clearBtn) clearBtn.style.display = val.trim() ? `inline-flex` : `none`;
+      renderChaptersAndStatus();
+    }
+
+    function clearSearch() {
+      state.searchQuery = ``;
+      const input = document.getElementById(`search-input`);
+      if (input) input.value = ``;
+      const clearBtn = document.getElementById(`clear-search-btn`);
+      if (clearBtn) clearBtn.style.display = `none`;
+      renderChaptersAndStatus();
+    }
+
+    function toggleChapter(key) {
+      if (state.openChapters.has(key)) {
+        state.openChapters.delete(key);
+      } else {
+        state.openChapters.add(key);
+      }
+      renderChaptersAndStatus();
+    }
+
+    function toggleStudied(key) {
+      if (state.studiedChapters.has(key)) {
+        state.studiedChapters.delete(key);
+      } else {
+        state.studiedChapters.add(key);
+      }
+      persistState();
+      renderKPIs();
+      renderCantoPills();
+      renderChaptersAndStatus();
+    }
+
+    function expandAllVisible() {
+      getVisibleChapters().forEach(ch => state.openChapters.add(ch.key));
+      renderChaptersAndStatus();
+    }
+
+    function collapseAllVisible() {
+      getVisibleChapters().forEach(ch => state.openChapters.delete(ch.key));
+      renderChaptersAndStatus();
+    }
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: `smooth` });
+    }
+
+    let resetConfirmTimer = null;
+    function resetProgress(btn) {
+      if (!btn) return;
+      if (btn.dataset.confirming !== `true`) {
+        btn.dataset.confirming = `true`;
+        btn.textContent = `Confirm Reset?`;
+        clearTimeout(resetConfirmTimer);
+        resetConfirmTimer = setTimeout(() => {
+          btn.dataset.confirming = `false`;
+          btn.textContent = `Reset Progress`;
+        }, 3500);
+        return;
+      }
+      clearTimeout(resetConfirmTimer);
+      btn.dataset.confirming = `false`;
+      btn.textContent = `Reset Progress`;
+      state.studiedChapters.clear();
+      persistState();
+      renderAll();
+    }
+
+    function exportProgress() {
+      const studiedList = Array.from(state.studiedChapters).sort((a, b) => {
+        const [ca, cha] = a.split(`.`).map(Number);
+        const [cb, chb] = b.split(`.`).map(Number);
+        return ca !== cb ? ca - cb : cha - chb;
+      });
+      const lines = [
+        `SRIMAD-BHAGAVATAM STUDY LOG`,
+        `Studied Chapters: ${studiedList.length} / ${ALL_CHAPTERS.length}`,
+        `----------------------------------------`,
+        ...studiedList.map(k => {
+          const item = ALL_CHAPTERS.find(x => x.key === k);
+          return item ? `SB ${item.key} — ${item.title} (${item.takeaway})` : `SB ${k}`;
+        })
+      ];
+      const blob = new Blob([lines.join(`\n`)], { type: `text/plain;charset=utf-8` });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement(`a`);
+      a.href = url;
+      a.download = `srimad-bhagavatam-study-progress.txt`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    // =========================================================================
+    // 7. FILTERING & RENDERING
+    // =========================================================================
+    function getVisibleChapters() {
+      const raw = state.searchQuery.trim();
+      if (!raw) {
+        return ALL_CHAPTERS.filter(c => c.cantoNum === state.activeCanto);
+      }
+      const norm = normalizeSanskrit(raw);
+      const variants = buildPhoneticVariants(norm);
+      return ALL_CHAPTERS.filter(c => variants.some(v => c.normBlob.includes(v)));
+    }
+
+    function renderKPIs() {
+      const canto = CANTOS.find(c => c.num === state.activeCanto) || CANTOS[0];
+      const kpiLimb = document.getElementById(`kpi-limb`);
+      const kpiLimbSub = document.getElementById(`kpi-limb-sub`);
+      const kpiTopic = document.getElementById(`kpi-topic`);
+      const kpiTopicSub = document.getElementById(`kpi-topic-sub`);
+      const kpiProg = document.getElementById(`kpi-progress`);
+      const kpiProgPct = document.getElementById(`kpi-progress-pct`);
+
+      if (kpiLimb) kpiLimb.textContent = canto.limb;
+      if (kpiLimbSub) kpiLimbSub.textContent = canto.limbGroup;
+      if (kpiTopic) kpiTopic.textContent = canto.topic.split(` (`)[0];
+      if (kpiTopicSub) kpiTopicSub.textContent = `Canto ${canto.num} · ${canto.chapterCount} Chapters`;
+      const studiedCount = state.studiedChapters.size;
+      const pct = Math.round((studiedCount / ALL_CHAPTERS.length) * 100);
+      if (kpiProg) kpiProg.textContent = `${studiedCount} / ${ALL_CHAPTERS.length}`;
+      if (kpiProgPct) kpiProgPct.textContent = `${pct}% Studied`;
+    }
+
+    function renderCantoPills() {
+      const container = document.getElementById(`canto-pills`);
+      const jumpSelect = document.getElementById(`canto-jump`);
+      if (jumpSelect) jumpSelect.value = String(state.activeCanto);
+      if (!container) return;
+
+      container.innerHTML = CANTOS.map(c => {
+        const activeClass = c.num === state.activeCanto ? ` is-active` : ``;
+        const studiedInCanto = ALL_CHAPTERS.filter(ch => ch.cantoNum === c.num && state.studiedChapters.has(ch.key)).length;
+        return `
+          <button
+            type="button"
+            role="tab"
+            aria-selected="${c.num === state.activeCanto}"
+            class="canto-pill${activeClass}"
+            onclick="selectCanto(${c.num})"
+          >
+            <span>Canto ${c.num}</span>
+            <span class="canto-pill-count">${studiedInCanto > 0 ? `${studiedInCanto}/${c.chapterCount}` : `${c.chapterCount} ch`}</span>
+          </button>
+        `;
+      }).join(``);
+    }
+
+    function renderAnatomyStrip() {
+      const strip = document.getElementById(`anatomy-strip`);
+      if (!strip) return;
+      const limbs = [
+        { canto: 1, label: `Cantos 1–2`, limb: `Lotus Feet` },
+        { canto: 3, label: `Cantos 3–4`, limb: `Thighs` },
+        { canto: 5, label: `Canto 5`, limb: `Lotus Navel` },
+        { canto: 6, label: `Canto 6`, limb: `Chest` },
+        { canto: 7, label: `Cantos 7–8`, limb: `Arms` },
+        { canto: 9, label: `Canto 9`, limb: `Throat` },
+        { canto: 10, label: `Canto 10`, limb: `Lotus Face` },
+        { canto: 11, label: `Canto 11`, limb: `Forehead` },
+        { canto: 12, label: `Canto 12`, limb: `Crown / Head` }
+      ];
+      strip.innerHTML = limbs.map(item => {
+        const isActive = (item.canto === state.activeCanto) ||
+          (item.canto === 1 && state.activeCanto === 2) ||
+          (item.canto === 3 && state.activeCanto === 4) ||
+          (item.canto === 7 && state.activeCanto === 8);
+        return `
+          <button type="button" class="limb-btn${isActive ? ` is-active` : ``}" onclick="selectCanto(${item.canto})">
+            <span class="limb-canto">${item.label}</span>
+            <span class="limb-name">${item.limb}</span>
+          </button>
+        `;
+      }).join(``);
+    }
+
+    function renderCantoHeader() {
+      const section = document.getElementById(`canto-header-section`);
+      if (!section) return;
+      const isSearching = Boolean(state.searchQuery.trim());
+      if (isSearching) {
+        section.style.display = `none`;
+        return;
+      }
+      section.style.display = `block`;
+      const canto = CANTOS.find(c => c.num === state.activeCanto) || CANTOS[0];
+      section.innerHTML = `
+        <div class="canto-header-top">
+          <div>
+            <p class="canto-kicker">Canto ${canto.num} · ${escapeHtml(canto.sanskrit)}</p>
+            <h2 class="canto-heading">Canto ${canto.num}: <em>${escapeHtml(canto.title)}</em></h2>
+            <div class="canto-badges">
+              <span class="badge-emerald">Limb: ${escapeHtml(canto.limb)} (${escapeHtml(canto.limbGroup)})</span>
+              <span class="badge-brass">Daśa-lakṣaṇa: ${escapeHtml(canto.topic)}</span>
+              <span class="badge-brass">${canto.chapterCount} Chapters · ${canto.verseCount.toLocaleString(`en-IN`)} Verses</span>
+            </div>
+          </div>
+          <div class="canto-actions">
+            <button type="button" class="btn btn-secondary" onclick="expandAllVisible()">Expand All</button>
+            <button type="button" class="btn btn-secondary" onclick="collapseAllVisible()">Collapse All</button>
+          </div>
+        </div>
+        <p class="canto-overview-text">${escapeHtml(canto.summary)}</p>
+      `;
+    }
+
+    function renderChaptersAndStatus() {
+      const rawQuery = state.searchQuery.trim();
+      const isSearching = Boolean(rawQuery);
+      const variants = isSearching ? buildPhoneticVariants(normalizeSanskrit(rawQuery)) : [];
+      const visible = getVisibleChapters();
+
+      renderCantoHeader();
+
+      const statusBar = document.getElementById(`search-status-bar`);
+      const statusText = document.getElementById(`search-status-text`);
+      if (statusBar && statusText) {
+        if (isSearching) {
+          statusBar.style.display = `flex`;
+          statusText.innerHTML = `Found <strong>${visible.length}</strong> ${visible.length === 1 ? `chapter` : `chapters`} across all 12 Cantos matching <strong>“${escapeHtml(rawQuery)}”</strong> (diacritic-insensitive Sanskrit search).`;
+        } else {
+          statusBar.style.display = `none`;
+        }
+      }
+
+      const container = document.getElementById(`chapters-container`);
+      if (!container) return;
+
+      if (visible.length === 0) {
+        container.innerHTML = `
+          <div class="empty-state">
+            <h3>No chapters matched “${escapeHtml(rawQuery)}”</h3>
+            <p>Try searching another character, pastime, or Sanskrit term without diacritics—such as <em>Krishna</em>, <em>Sukadeva</em>, <em>Nrsimha</em>, <em>Prahlada</em>, <em>Catuh-sloki</em>, or <em>Gajendra</em>.</p>
+            <button type="button" class="btn btn-primary" onclick="clearSearch()">Clear Search</button>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = visible.map(ch => {
+        const isOpen = state.openChapters.has(ch.key) || (isSearching && visible.length <= 8);
+        const isStudied = state.studiedChapters.has(ch.key);
+        const titleHtml = isSearching ? highlightNormalized(ch.title, variants) : escapeHtml(ch.title);
+        const summaryHtml = isSearching ? highlightNormalized(ch.summary, variants) : escapeHtml(ch.summary);
+        const takeawayHtml = isSearching ? highlightNormalized(ch.takeaway, variants) : escapeHtml(ch.takeaway);
+
+        const versesHtml = ch.verses.map(v => {
+          const refHtml = isSearching ? highlightNormalized(v.ref, variants) : escapeHtml(v.ref);
+          const sanskritHtml = isSearching ? highlightNormalized(v.sanskrit, variants) : escapeHtml(v.sanskrit);
+          const w2wHtml = isSearching ? highlightNormalized(v.w2w, variants) : escapeHtml(v.w2w);
+          const meaningHtml = isSearching ? highlightNormalized(v.meaning, variants) : escapeHtml(v.meaning);
+          return `
+            <div class="verse-card">
+              <p class="verse-ref">Landmark Verse · ${refHtml}</p>
+              <p class="verse-sanskrit">${sanskritHtml}</p>
+              <p class="verse-w2w"><strong>Word-for-word:</strong> ${w2wHtml}</p>
+              <p class="verse-meaning"><strong>Significance:</strong> ${meaningHtml}</p>
+            </div>
+          `;
+        }).join(``);
+
+        return `
+          <article class="chapter-card${isOpen ? ` is-open` : ``}${isStudied ? ` is-studied` : ``}">
+            <button
+              type="button"
+              class="chapter-trigger"
+              aria-expanded="${isOpen}"
+              onclick="toggleChapter('${ch.key}')"
+            >
+              <div class="chapter-trigger-main">
+                <span class="chapter-num-pill">SB ${ch.key}</span>
+                <span class="chapter-title-text">${titleHtml}</span>
+              </div>
+              <div class="chapter-meta-right">
+                ${ch.verses.length > 0 ? `<span class="verse-badge">${ch.verses.length} Key ${ch.verses.length === 1 ? `Verse` : `Verses`}</span>` : ``}
+                ${isStudied ? `<span class="studied-tag">✓ Studied</span>` : ``}
+                <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </div>
+            </button>
+            <div class="chapter-body">
+              <div class="chapter-section">
+                <p class="chapter-section-label">${isSearching ? `Canto ${ch.cantoNum}: ${escapeHtml(ch.cantoTitle)} · ${escapeHtml(ch.cantoLimb)}` : `Core Theme &amp; Narrative Summary`}</p>
+                <p class="chapter-summary">${summaryHtml}</p>
+              </div>
+              ${versesHtml ? `
+                <div class="chapter-section">
+                  <p class="chapter-section-label">Key Sanskrit Verse &amp; Realization</p>
+                  ${versesHtml}
+                </div>
+              ` : ``}
+              <div class="chapter-section">
+                <p class="chapter-section-label">Sādhana &amp; Bhakti-Yoga Takeaway</p>
+                <div class="takeaway-box">${takeawayHtml}</div>
+              </div>
+              <div class="chapter-footer-actions">
+                <button type="button" class="btn ${isStudied ? `btn-secondary` : `btn-primary`}" onclick="toggleStudied('${ch.key}')">
+                  ${isStudied ? `✓ Marked as Studied (Undo)` : `Mark SB ${ch.key} Studied`}
+                </button>
+                ${isSearching ? `<button type="button" class="btn btn-ghost" onclick="clearSearch(); selectCanto(${ch.cantoNum});">Open Full Canto ${ch.cantoNum}</button>` : ``}
+              </div>
+            </div>
+          </article>
+        `;
+      }).join(``);
+    }
+
+    function renderAll() {
+      renderKPIs();
+      renderCantoPills();
+      renderAnatomyStrip();
+      renderChaptersAndStatus();
+    }
+
+    // Floating Back-to-Top visibility listener
+    window.addEventListener(`scroll`, () => {
+      const btn = document.getElementById(`back-to-top`);
+      if (!btn) return;
+      if (window.scrollY > 360) {
+        btn.classList.add(`is-visible`);
+      } else {
+        btn.classList.remove(`is-visible`);
+      }
+    }, { passive: true });
+
+    document.addEventListener(`DOMContentLoaded`, hydrateState);
+  </script>
+</body>
+</html>
